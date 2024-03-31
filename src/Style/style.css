@@ -1,0 +1,114 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  text-decoration: none;
+  scroll-behavior: smooth;
+  scrollbar-width: none;
+}
+*::-webkit-scrollbar {
+  display: none;
+}
+
+.alk-sanet {
+  font-family: "ALK Sanet", sans-serif;
+}
+
+.header {
+  position: fixed;
+  z-index: 999;
+  font-size: 1.7rem;
+  width: 100%;
+  height: 7rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 5rem;
+}
+.header .logo {
+  cursor: pointer;
+}
+.header .navigation {
+  display: flex;
+  gap: 2rem;
+}
+.header .navigation .nav-link {
+  cursor: pointer;
+  color: whitesmoke;
+  word-spacing: 0rem;
+}
+.footer {
+  height: 10rem;
+  width: 100%;
+  background-color: rgb(44, 43, 43);
+  color: whitesmoke;
+}
+
+.background_video {
+  width: 100%;
+  height: 100vh;
+}
+.background_video video {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  -o-object-position: top;
+     object-position: top;
+}
+.background_video .video_overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.4);
+  display: flex;
+  justify-content: center;
+  padding-top: 11%;
+}
+.background_video .video_overlay .overlay_text {
+  color: #9c0c0c;
+  font-family: "ALK Sanet";
+  font-size: 1.7rem;
+  box-shadow: #9c0c0c 0px 2px 4px 0px, #9c0c0c 0px 2px 16px 0px;
+  width: 600px;
+  height: 80px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: bold;
+  position: relative;
+  overflow: hidden;
+  transition: 0.6s;
+}
+.background_video .video_overlay .overlay_text:hover {
+  background: linear-gradient(to right, rgba(156, 12, 12, 0.6) 0%, rgba(156, 12, 12, 0) 50%, rgba(156, 12, 12, 0.6) 100%);
+  color: whitesmoke;
+  text-shadow: 1px 1px 1px black;
+  cursor: pointer;
+}
+.background_video .video_overlay .overlay_text::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -50%;
+  width: 300%;
+  height: 100%;
+  background: linear-gradient(to right, transparent 0%, #9c0c0c 70%, transparent 100%);
+  animation: shine 5s infinite linear;
+}
+.background_video .video_overlay .overlay_text.shine-animation {
+  color: black;
+}
+@keyframes shine {
+  0% {
+    transform: translateX(-150%);
+  }
+  50% {
+    color: black;
+  }
+  100% {
+    transform: translateX(150%);
+  }
+}/*# sourceMappingURL=style.css.map */

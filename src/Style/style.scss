@@ -1,0 +1,130 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  text-decoration: none;
+  scroll-behavior: smooth;
+  scrollbar-width: none;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+.alk-sanet {
+  font-family: "ALK Sanet", sans-serif;
+}
+
+//ცვლადები
+$header-height: 7rem;
+$font-size: 1.7rem;
+
+.header {
+  position: fixed;
+  z-index: 999;
+
+  font-size: $font-size;
+  width: 100%;
+  height: $header-height;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 5rem;
+  .logo {
+    cursor: pointer;
+  }
+  .navigation {
+    display: flex;
+    gap: 2rem;
+    .nav-link {
+      cursor: pointer;
+      color: whitesmoke;
+      word-spacing: 0rem;
+      &:hover {
+        //მერე მოვიფიქრებ
+      }
+    }
+  }
+}
+.footer {
+  height: 10rem;
+  width: 100%;
+  background-color: rgb(44, 43, 43);
+  color: whitesmoke;
+}
+.background_video {
+  width: 100%;
+  height: 100vh;
+  video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: top;
+  }
+  .video_overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.4);
+    display: flex;
+    justify-content: center;
+    padding-top: 11%;
+
+    .overlay_text {
+      color: #9c0c0c;
+      font-family: "ALK Sanet";
+      font-size: $font-size;
+
+      box-shadow:#9c0c0c 0px 2px 4px 0px, #9c0c0c 0px 2px 16px 0px;
+      width: 600px;
+      height: 80px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-weight: bold;
+      position: relative;
+      overflow: hidden;
+      transition: 0.6s;
+      &:hover {
+        background: linear-gradient(to right, rgba(156, 12, 12, 0.6) 0%, rgba(156, 12, 12, 0) 50%, rgba(156, 12, 12, 0.6) 100%);
+
+        color: whitesmoke;
+        text-shadow: 1px 1px 1px black;
+        cursor: pointer;
+
+        
+      }
+    }
+
+    .overlay_text::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: -50%;
+      width: 300%;
+      height: 100%;
+      background: linear-gradient(to right, transparent 0%, #9c0c0c 70%, transparent 100%);
+      animation: shine 5s infinite linear;
+    }
+    
+
+    .overlay_text.shine-animation {
+      color: black; 
+    }
+
+    @keyframes shine {
+      0% {
+        transform: translateX(-150%);
+      }
+      50% {
+        color: black; 
+      }
+      100% {
+        transform: translateX(150%);
+      }
+    }
+  }
+}
