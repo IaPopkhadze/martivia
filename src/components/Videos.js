@@ -14,12 +14,11 @@ const Videos = () => {
   const [openVideo, SetOpenVideo] = useState(null);
   const images = [cover, test1, test3, kart, sxva, test, cover, test1];
 
-  
   useEffect(() => {
     const videoContainers = document.querySelectorAll(".video_container");
 
     function movingContainer() {
-      const triggerBottom = (window.innerHeight / 5) * 4;
+      const triggerBottom = (window.innerHeight / 4.4) * 4;
       videoContainers.forEach((box) => {
         const boxTop = box.getBoundingClientRect().top;
         if (boxTop < triggerBottom) {
@@ -58,7 +57,7 @@ const Videos = () => {
       {openVideo && (
         <div className="open_video_overlday">
           <div className="video_cont">
-            <video style={{opacity: openVideo ? 1 : 0}} src={video} autoPlay loop controls className="videoo" />
+            <video style={{ opacity: openVideo ? 1 : 0 }} src={video} autoPlay loop controls className="videoo" />
           </div>
 
           <IoClose className="x" onClick={() => SetOpenVideo(false)} />
