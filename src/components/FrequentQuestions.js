@@ -4,15 +4,6 @@ import { FaPersonCircleQuestion } from "react-icons/fa6";
 const FrequentQuestions = () => {
   // const [x, setX] = useState(0);
 
-  useEffect(() => {
-    // const logScroll = () => {
-    //   if (window.scrollY >= 200) {
-    //     console.log("METIA 200");
-    //   }
-    // };
-    // window.addEventListener("scroll", logScroll);
-    // return () => window.removeEventListener("scroll", logScroll);
-  }, []);
 
   useEffect(() => {
     const answerContainers = document.querySelectorAll(".answer");

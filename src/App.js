@@ -5,10 +5,10 @@ import Contact from "./components/Contact";
 import AboutUs from "./components/AboutUs";
 import MainContent from "./components/MainContent";
 import "../node_modules/alk-sanet/css/alk-sanet.min.css";
+import "bpg-arial-caps/css/bpg-arial-caps.min.css"
+import "/node_modules/bpg-algeti/css/bpg-algeti.min.css"
 import { IoChatbubbleEllipsesSharp } from "react-icons/io5";
-import { IoLogoYoutube } from "react-icons/io";
-import { BsFacebook } from "react-icons/bs";
-import { RiInstagramFill } from "react-icons/ri";
+
 import { useState } from "react";
 import { IoClose } from "react-icons/io5";
 
@@ -25,16 +25,8 @@ function App() {
   };
   return (
     <BrowserRouter>
-      <div className="social_media_icons">
-        <span className="icon_container">
-          <IoLogoYoutube className="icon" />
-        </span>
-        <span className="icon_container">
-          <BsFacebook className="icon" />
-        </span>
-        <span className="icon_container">
-          <RiInstagramFill className="icon" />
-        </span>
+      <div className="online_chat_icons">
+
         <span className="icon_container" onClick={handleOpenChat}>
           <IoChatbubbleEllipsesSharp className="icon" />
         </span>

@@ -3,6 +3,7 @@ import Slider from './Slider'
 import Videos from './Videos'
 import FrequentQuestions from './FrequentQuestions'
 import AboutUs from './AboutUs'
+import Contact from './Contact'
 const MainContent = () => {
   return (
     <div>
@@ -10,6 +11,7 @@ const MainContent = () => {
         <Videos/>
         <FrequentQuestions/>
         <AboutUs/>
+        <Contact/>
     </div>
   )
 }

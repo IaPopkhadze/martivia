@@ -9,7 +9,6 @@ import backgroundImg from "../Assets/cover1.jpg";
 const Slider = () => {
   return (
     <div className="background_image_container">
-      {/* <img src={backgroundImg} alt="image" className="background_image" /> */}
       <div className="background_image_overlay">
         <p className="overlay_text">შეიძინე ავტომობილი <br/> საუკეთესო მდგომარეობაში, საუკეთესო ფასად </p>
         <div className="btn_continer">
