@@ -40,6 +40,7 @@
   right: 1rem;
   color: whitesmoke;
   cursor: pointer;
+  display: none;
 }
 .header .resaponsiver_menu_overlay {
   position: fixed;
@@ -221,7 +222,6 @@
   margin-top: 1.5rem;
   width: 190px;
   height: 40px;
-  background-color: red;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -343,7 +343,6 @@
 }
 .video .video_container .video_overlay .overlay_content .video_icon {
   font-size: 2.3rem;
-  color: red;
 }
 .video .video_container .video_overlay .overlay_content .play_video {
   color: whitesmoke;
@@ -451,6 +450,8 @@
   width: 50%;
   height: 200px;
   position: absolute;
+  top: 0;
+  left: 0;
   left: 15%;
   transform: translateY(70%);
   border-radius: 10px;
@@ -461,7 +462,7 @@
   padding: 1rem;
   color: whitesmoke;
   opacity: 0;
-  transition: left 1.7s, opacity 2s; /* Add transition for smooth movement */
+  transition: left 1.7s, opacity 2s;
 }
 .Frequent_questions .each_question_container-content .answer.show {
   left: 25%;
@@ -538,7 +539,6 @@
   color: whitesmoke;
   width: 200px;
   height: 50px;
-  background-color: red;
 }
 .contact .contactus .contact_info .social_media_icons {
   width: 100%;
@@ -588,12 +588,55 @@
     font-size: 1.1rem;
   }
 }
+@media screen and (max-width: 1300px) {
+  .Frequent_questions .each_question_container {
+    height: -moz-fit-content;
+    height: fit-content;
+    position: static;
+  }
+  .Frequent_questions .each_question_container .question {
+    position: static;
+    width: 100%;
+    height: -moz-fit-content;
+    height: fit-content;
+  }
+  .Frequent_questions .each_question_container .answer {
+    position: static;
+    width: 100%;
+    height: -moz-fit-content;
+    height: fit-content;
+  }
+}
 @media screen and (max-width: 900px) {
   .header .navigation {
     display: none;
   }
+  .header .header_icon {
+    display: bl;
+  }
+  .header .header_icon {
+    display: block;
+  }
 }
 @media screen and (max-width: 600px) {
+  .background_image_container .background_image_overlay {
+    gap: 0;
+  }
+  .background_image_container .background_image_overlay .overlay_text {
+    width: 100%;
+    font-size: 1.4rem;
+  }
+  .background_image_container .background_image_overlay .btn_continer {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    width: 100%;
+  }
+  .background_image_container .background_image_overlay .btn_continer .my_btn {
+    width: 70%;
+    height: 60px;
+  }
   .video {
     padding: 0.5rem;
   }
@@ -611,8 +654,7 @@
   .video .video_description {
     width: 100%;
   }
-  /* Adjust grid layout for smaller screens */
   .video {
-    grid-template-columns: repeat(auto-fit, minmax(100%, 1fr)); /* Adjust minmax value */
+    grid-template-columns: repeat(auto-fit, minmax(100%, 1fr));
   }
 }/*# sourceMappingURL=style.css.map */

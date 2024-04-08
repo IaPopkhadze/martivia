@@ -2,15 +2,15 @@ import React, { useEffect, useState } from "react";
 import { FaPersonCircleQuestion } from "react-icons/fa6";
 
 const FrequentQuestions = () => {
-  // const [x, setX] = useState(0);
+
 
 
   useEffect(() => {
     const answerContainers = document.querySelectorAll(".answer");
 
     function handleScroll() {
-      const triggerBottom = window.innerHeight * 0.9; // Adjust trigger point as needed
-      const triggerBottom2 = window.innerHeight * 1.1; // Adjust trigger point as needed
+      const triggerBottom = window.innerHeight * 0.9; 
+      const triggerBottom2 = window.innerHeight * 1.1; 
       answerContainers.forEach((container) => {
         const containerTop = container.getBoundingClientRect().top;
         if (containerTop < triggerBottom) {
@@ -23,7 +23,7 @@ const FrequentQuestions = () => {
     }
 
     window.addEventListener("scroll", handleScroll);
-    handleScroll(); // Initial check on mount
+    handleScroll(); 
 
     return () => {
       window.removeEventListener("scroll", handleScroll);
