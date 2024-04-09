@@ -5,7 +5,6 @@ import { MdAttachEmail } from "react-icons/md";
 import { BiSolidPhoneCall } from "react-icons/bi";
 import { MdOutlineAccessTimeFilled } from "react-icons/md";
 import { useEffect } from "react";
-
 import { BsInstagram } from "react-icons/bs";
 import { GrFacebookOption } from "react-icons/gr";
 import { FaWhatsapp } from "react-icons/fa";
@@ -14,7 +13,6 @@ import { FaViber } from "react-icons/fa";
 import { PiTelegramLogo } from "react-icons/pi";
 
 const Contact = () => {
-
   useEffect(() => {
     const title = document.querySelector(".contact_title");
     const videoContainers = document.querySelectorAll(".map_container");
@@ -78,26 +76,24 @@ const Contact = () => {
             </div>
           </div>
           <div className="social_media_icons">
-
-             <div className="icon_container">
+            <div className="icon_container">
               <BsInstagram className="icon" />
-            </div> 
+            </div>
             <div className="icon_container">
               <GrFacebookOption className="icon" />
-            </div> 
+            </div>
             <div className="icon_container">
               <FiYoutube className="icon" />
-            </div> 
+            </div>
             <div className="icon_container">
               <FaWhatsapp className="icon" />
-            </div> 
+            </div>
             <div className="icon_container">
               <FaViber className="icon" />
-            </div> 
+            </div>
             <div className="icon_container">
               <PiTelegramLogo className="icon" />
-            </div> 
-
+            </div>
           </div>
         </div>
       </div>
