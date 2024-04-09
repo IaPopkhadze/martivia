@@ -10,7 +10,7 @@ const Slider = () => {
   return (
     <div className="background_image_container">
       <div className="background_image_overlay">
-        <p className="overlay_text">შეიძინე ავტომობილი <br/> საუკეთესო მდგომარეობაში, საუკეთესო ფასად </p>
+        <p className="overlay_text">შეიძინე ავტომობილი  საუკეთესო მდგომარეობაში, საუკეთესო ფასად </p>
         <div className="btn_continer">
           <div className="my_btn">მძიმე ტექნიკა</div>
 

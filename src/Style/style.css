@@ -168,8 +168,8 @@
 
 .online_chat_icons {
   position: fixed;
-  bottom: 2rem;
-  right: 2rem;
+  bottom: 0.8rem;
+  right: 1rem;
   z-index: 1000;
 }
 .online_chat_icons .icon_container {
@@ -551,7 +551,7 @@
   transition: width 3.5s ease; /* Use width for transition */
 }
 .contact .contact_title.show {
-  width: 500px;
+  width: 70%;
 }
 .contact .contactus {
   width: 90%;
@@ -648,6 +648,12 @@
   }
 }
 @media screen and (max-width: 1600px) {
+  .background_image_container {
+    height: 80vh;
+  }
+  .background_image_container .background_image_overlay {
+    height: 80vh;
+  }
   .Frequent_questions .frequent_question_title {
     font-size: 1.5rem;
     width: auto;
@@ -731,10 +737,6 @@
   }
 }
 @media screen and (max-width: 1300px) {
-  .contact .contact_title {
-    font-size: 1.5rem;
-    width: auto;
-  }
   .contact .contactus {
     flex-direction: column;
   }
@@ -791,12 +793,16 @@
     padding-bottom: 2rem;
   }
   .contact .contactus .contact_info .social_media_icons .icon_container {
-    background-color: red;
     margin: 1rem;
   }
 }
 @media screen and (max-width: 900px) {
   .responsive_live_chat {
     visibility: visible !important;
+  }
+}
+@media screen and (max-width: 700px) {
+  .contact .contact_title {
+    font-size: 1.5rem;
   }
 }/*# sourceMappingURL=style.css.map */

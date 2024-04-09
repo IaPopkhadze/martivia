@@ -10,7 +10,7 @@ const MainContent = () => {
         <Slider/>
         <Videos/>
         <FrequentQuestions/>
-        <AboutUs/>
+        {/* <AboutUs/> */}
         <Contact/>
     </div>
   )

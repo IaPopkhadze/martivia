@@ -1,5 +1,3 @@
-// Header.jsx
-
 import React, { useState, useEffect } from "react";
 import { Link } from "react-scroll";
 import logo from "../../Assets/LOGO1.png";
@@ -7,8 +5,8 @@ import { RxHamburgerMenu } from "react-icons/rx";
 import { IoMdClose } from "react-icons/io";
 
 const Header = () => {
-  const [scrollPosition, setScrollPosition] = useState(0);
-  const [handleHamburgerMenu, setHandleHamburgerMenu] = useState(null);
+  const [scrollPosition, setScrollPosition] = useState(window.scrollY);
+  const [handleHamburgerMenu, setHandleHamburgerMenu] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -23,7 +21,7 @@ const Header = () => {
   }, []);
 
   return (
-    <div className={`header ${scrollPosition > window.innerHeight ? "yellow-bg" : ""}`}>
+    <div className={`header ${scrollPosition > 0 ? "yellow-bg" : ""}`}>
       <Link to="/" className="logo">
         <img src={logo} alt="" />
       </Link>
@@ -33,7 +31,7 @@ const Header = () => {
         </Link>
         <Link to="Frequent_questions" className="nav-link">
           ხშირად დასმული კითხვები
-        </Link>{" "}
+        </Link>
         <Link to="about_us" className="nav-link">
           ჩვენს შესახებ
         </Link>
@@ -56,8 +54,7 @@ const Header = () => {
           <Link onClick={() => setHandleHamburgerMenu(false)} to="contact" className="nav-link">
             კონტაქტი
           </Link>
-          <IoMdClose className="header_icon" onClick={() => setHandleHamburgerMenu(false)}/>
-    
+          <IoMdClose className="header_icon" onClick={() => setHandleHamburgerMenu(false)} />
         </div>
       )}
     </div>
