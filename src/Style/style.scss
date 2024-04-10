@@ -67,7 +67,7 @@ $font-size: 1.1rem;
       display: flex;
       align-items: center;
       justify-content: center;
- 
+
       &:hover {
         border-bottom: 1px solid whitesmoke;
       }
@@ -117,7 +117,7 @@ $font-size: 1.1rem;
   background-image: linear-gradient(to bottom, transparent, #000), url("../Assets/cover1.jpg");
   background-size: cover;
   background-position: top;
-  
+
   .background_image {
     width: 100%;
     height: 100%;
@@ -300,7 +300,7 @@ $font-size: 1.1rem;
       height: fit-content;
       color: #141d24;
       font-size: 1.1rem;
-     
+
       width: 100%;
       height: fit-content;
     }
@@ -509,56 +509,41 @@ $font-size: 1.1rem;
 
   .each_question_container {
     width: 100%;
-    height: 400px;
+    height: 100vh;
 
-    &-content {
-      position: relative;
+    .question {
+      background-color: whitesmoke;
+cursor: pointer;
       width: 100%;
-      height: 100%;
-
-      .question {
-        position: absolute;
-        top: 0;
-        left: 0;
-        background-color: whitesmoke;
-        height: 200px;
-        width: 50%;
-        border-radius: 10px;
-        z-index: 1;
-        color: #141d24;
-        font-size: 1.4rem;
-        padding: 1rem;
+      border-radius: 10px;
+      margin: 0.5rem 0;
+      color: #141d24;
+      font-size: 1.2rem;
+      padding: 0.6rem 1rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      .content {
         display: flex;
         align-items: center;
         gap: 0.5rem;
       }
-
-      .answer {
-        font-size: 1.2rem;
-        width: 50%;
-        height: 210px;
-        position: absolute;
-        top: 0;
-        left: 0;
-        left: 15%;
-        transform: translateY(70%);
-        // left: 0;
-        // transform: translateY(0);
-        border-radius: 10px;
-        background-color: rgba(37, 54, 66, 0.5);
-        background-color: #1d2933;
-        z-index: 2;
-
-        padding: 1rem;
-        color: whitesmoke;
-        opacity: 0;
-        transition: left 1.7s, opacity 2s;
-        &.show {
-          left: 25%;
-          opacity: 1;
-        }
+      .arrow {
+        font-size: 1.7rem;
       }
     }
+    .answer {
+      font-size: 1.2rem;
+      width: 100%;
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.3s ease; /* Add transition property */
+    }
+    
+    .answer.show {
+      max-height: 500px; /* Or any value that is greater than your content's potential height */
+    }
+    
   }
 }
 
@@ -703,41 +688,12 @@ $font-size: 1.1rem;
 }
 
 @media screen and (max-width: 1600px) {
-.background_image_container{
-height: 80vh;
-.background_image_overlay{
-  height: 80vh;
-}
-}
-  .Frequent_questions {
-    .frequent_question_title {
-      font-size: 1.5rem;
-      width: auto;
-    }
-    .each_question_container {
-      height: fit-content;
-      position: static;
-
-      .question {
-        position: static;
-        width: 100%;
-        font-size: 1.2rem;
-        height: fit-content;
-  
-      }
-      .answer {
-        font-size: 1.1rem;
-        margin-top: 0.5rem;
-        margin-bottom: 2rem;
-        position: static;
-        width: 100%;
-        height: fit-content;
-        left: 0;
-        transform: translateY(0);
-      }
+  .background_image_container {
+    height: 80vh;
+    .background_image_overlay {
+      height: 80vh;
     }
   }
-
 }
 
 @media screen and (max-width: 900px) {
@@ -752,10 +708,9 @@ height: 80vh;
       display: block;
     }
   }
-  .chat-box{
+  .chat-box {
     display: none;
   }
-
 }
 
 @media screen and (max-width: 600px) {
@@ -808,7 +763,6 @@ height: 80vh;
 
 @media screen and (max-width: 1300px) {
   .contact {
-
     .contactus {
       flex-direction: column;
       .map_container {
@@ -877,7 +831,6 @@ height: 80vh;
           grid-template-columns: repeat(3, 1fr);
           padding-bottom: 2rem;
           .icon_container {
-   
             margin: 1rem;
           }
         }
@@ -886,20 +839,18 @@ height: 80vh;
   }
 }
 
-
 @media screen and (max-width: 900px) {
   .responsive_live_chat {
-
     visibility: visible !important;
   }
 }
 
 @media screen and (max-width: 700px) {
-  .contact{
+  .contact {
     .contact_title {
       font-size: 1.5rem;
-
     }
   }
 }
 
+// color: #141d24;

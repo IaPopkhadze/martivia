@@ -31,7 +31,7 @@ function App() {
         {/* <span className="icon_container" onClick={handleOpenChat}>
           <IoChatbubbleEllipsesSharp className="icon" />
         </span> */}
-        .
+        
 
         {showChat && (
           <>

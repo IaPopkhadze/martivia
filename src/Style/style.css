@@ -482,50 +482,38 @@
 }
 .Frequent_questions .each_question_container {
   width: 100%;
-  height: 400px;
+  height: 100vh;
 }
-.Frequent_questions .each_question_container-content {
-  position: relative;
-  width: 100%;
-  height: 100%;
-}
-.Frequent_questions .each_question_container-content .question {
-  position: absolute;
-  top: 0;
-  left: 0;
+.Frequent_questions .each_question_container .question {
   background-color: whitesmoke;
-  height: 200px;
-  width: 50%;
+  cursor: pointer;
+  width: 100%;
   border-radius: 10px;
-  z-index: 1;
+  margin: 0.5rem 0;
   color: #141d24;
-  font-size: 1.4rem;
-  padding: 1rem;
+  font-size: 1.2rem;
+  padding: 0.6rem 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.Frequent_questions .each_question_container .question .content {
   display: flex;
   align-items: center;
   gap: 0.5rem;
 }
-.Frequent_questions .each_question_container-content .answer {
-  font-size: 1.2rem;
-  width: 50%;
-  height: 210px;
-  position: absolute;
-  top: 0;
-  left: 0;
-  left: 15%;
-  transform: translateY(70%);
-  border-radius: 10px;
-  background-color: rgba(37, 54, 66, 0.5);
-  background-color: #1d2933;
-  z-index: 2;
-  padding: 1rem;
-  color: whitesmoke;
-  opacity: 0;
-  transition: left 1.7s, opacity 2s;
+.Frequent_questions .each_question_container .question .arrow {
+  font-size: 1.7rem;
 }
-.Frequent_questions .each_question_container-content .answer.show {
-  left: 25%;
-  opacity: 1;
+.Frequent_questions .each_question_container .answer {
+  font-size: 1.2rem;
+  width: 100%;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease; /* Add transition property */
+}
+.Frequent_questions .each_question_container .answer.show {
+  max-height: 500px; /* Or any value that is greater than your content's potential height */
 }
 
 .contact {
@@ -654,33 +642,6 @@
   }
   .background_image_container .background_image_overlay {
     height: 80vh;
-  }
-  .Frequent_questions .frequent_question_title {
-    font-size: 1.5rem;
-    width: auto;
-  }
-  .Frequent_questions .each_question_container {
-    height: -moz-fit-content;
-    height: fit-content;
-    position: static;
-  }
-  .Frequent_questions .each_question_container .question {
-    position: static;
-    width: 100%;
-    font-size: 1.2rem;
-    height: -moz-fit-content;
-    height: fit-content;
-  }
-  .Frequent_questions .each_question_container .answer {
-    font-size: 1.1rem;
-    margin-top: 0.5rem;
-    margin-bottom: 2rem;
-    position: static;
-    width: 100%;
-    height: -moz-fit-content;
-    height: fit-content;
-    left: 0;
-    transform: translateY(0);
   }
 }
 @media screen and (max-width: 900px) {
