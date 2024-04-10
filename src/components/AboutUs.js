@@ -6,11 +6,9 @@ import { MdAttachEmail } from "react-icons/md";
 import { BiSolidPhoneCall } from "react-icons/bi";
 
 const AboutUs = () => {
-  return (
-    <div className="about_us">
 
-    </div>
-  );
+
+  return <div className="about_us"></div>;
 };
 
 export default AboutUs;

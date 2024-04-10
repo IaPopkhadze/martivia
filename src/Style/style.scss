@@ -36,7 +36,7 @@ $font-size: 1.1rem;
   align-items: center;
   justify-content: space-between;
   padding: 0 2.5rem;
-
+  font-family: "ALK Sanet", sans-serif;
   .header_icon {
     position: fixed;
     font-size: 2.2rem;
@@ -67,6 +67,7 @@ $font-size: 1.1rem;
       display: flex;
       align-items: center;
       justify-content: center;
+ 
       &:hover {
         border-bottom: 1px solid whitesmoke;
       }

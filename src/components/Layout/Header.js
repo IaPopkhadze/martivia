@@ -1,12 +1,17 @@
 import React, { useState, useEffect } from "react";
-import { Link } from "react-scroll";
 import logo from "../../Assets/LOGO1.png";
 import { RxHamburgerMenu } from "react-icons/rx";
 import { IoMdClose } from "react-icons/io";
+import { Link as RouterLink, useNavigate } from "react-router-dom";
+import { Link as ScrollLink } from "react-scroll";
+import { useLocation } from "react-router-dom";
 
 const Header = () => {
   const [scrollPosition, setScrollPosition] = useState(window.scrollY);
   const [handleHamburgerMenu, setHandleHamburgerMenu] = useState(false);
+  const location = useLocation();
+  const { pathname } = location;
+  const navigate = useNavigate();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -20,41 +25,68 @@ const Header = () => {
     };
   }, []);
 
+  const handleMainClick = () => {
+    if (pathname === "/aboutus") {
+      navigate("/");
+    } else {
+      console.log("Smooth scrolling to main");
+    }
+    setHandleHamburgerMenu(false);
+  };
+
+  const handleMenuClose = () => {
+    if (pathname === "/aboutus") {
+      navigate("/");
+    } else {
+      console.log("Smooth scrolling to main");
+    }
+    setHandleHamburgerMenu(false);
+  };
+
   return (
     <div className={`header ${scrollPosition > 0 ? "yellow-bg" : ""}`}>
-      <Link to="/" className="logo">
+      <ScrollLink to="/" className="logo">
         <img src={logo} alt="" />
-      </Link>
+      </ScrollLink>
       <div className="navigation">
-        <Link to="background_image_container" className="nav-link">
+        <ScrollLink to={pathname === "/aboutus" ? "/" : "background_image_container"} className="nav-link" onClick={handleMainClick}>
           მთავარი
-        </Link>
-        <Link to="Frequent_questions" className="nav-link">
-          ხშირად დასმული კითხვები
-        </Link>
-        <Link to="about_us" className="nav-link">
+        </ScrollLink>
+        {pathname !== "/aboutus" && (
+          <>
+            <ScrollLink to="Frequent_questions" className="nav-link">
+              ხშირად დასმული კითხვები
+            </ScrollLink>
+            <ScrollLink to="contact" className="nav-link">
+              კონტაქტი
+            </ScrollLink>
+          </>
+        )}
+
+        <RouterLink to="/aboutus" className="nav-link">
           ჩვენს შესახებ
-        </Link>
-        <Link to="contact" className="nav-link">
-          კონტაქტი
-        </Link>
+        </RouterLink>
       </div>
       <RxHamburgerMenu className="header_icon" onClick={() => setHandleHamburgerMenu(true)} />
       {handleHamburgerMenu && (
         <div className="resaponsiver_menu_overlay">
-          <Link onClick={() => setHandleHamburgerMenu(false)} to="background_image_container" className="nav-link">
+          <ScrollLink onClick={handleMenuClose} to={pathname === "/aboutus" ? "/" : "background_image_container"} className="nav-link">
             მთავარი
-          </Link>
-          <Link onClick={() => setHandleHamburgerMenu(false)} to="Frequent_questions" className="nav-link">
-            ხშირად დასმული კითხვები
-          </Link>{" "}
-          <Link onClick={() => setHandleHamburgerMenu(false)} to="about_us" className="nav-link">
+          </ScrollLink>
+
+          {pathname !== "/aboutus" && <>
+            <ScrollLink onClick={handleMenuClose} to="Frequent_questions" className="nav-link">
+              ხშირად დასმული კითხვები
+            </ScrollLink>{" "}
+            <ScrollLink onClick={handleMenuClose} to="contact" className="nav-link">
+              კონტაქტი
+            </ScrollLink>
+          </>}
+          
+          <ScrollLink onClick={handleMenuClose} to="about_us" className="nav-link">
             ჩვენს შესახებ
-          </Link>
-          <Link onClick={() => setHandleHamburgerMenu(false)} to="contact" className="nav-link">
-            კონტაქტი
-          </Link>
-          <IoMdClose className="header_icon" onClick={() => setHandleHamburgerMenu(false)} />
+          </ScrollLink>
+          <IoMdClose className="header_icon" onClick={handleMenuClose} />
         </div>
       )}
     </div>

@@ -8,9 +8,11 @@ import "../node_modules/alk-sanet/css/alk-sanet.min.css";
 import "bpg-arial-caps/css/bpg-arial-caps.min.css";
 import "/node_modules/bpg-algeti/css/bpg-algeti.min.css";
 import { IoChatbubbleEllipsesSharp } from "react-icons/io5";
-
+import Vehicles from "./components/Vehicles";
 import { useState } from "react";
 import { IoClose } from "react-icons/io5";
+import { IoIosArrowDown } from "react-icons/io";
+import { IoIosArrowUp } from "react-icons/io";
 
 function App() {
   const [startChat, setStartChat] = useState(null);
@@ -26,9 +28,10 @@ function App() {
   return (
     <BrowserRouter>
       <div className="online_chat_icons">
-        <span className="icon_container" onClick={handleOpenChat}>
+        {/* <span className="icon_container" onClick={handleOpenChat}>
           <IoChatbubbleEllipsesSharp className="icon" />
-        </span>
+        </span> */}
+        .
 
         {showChat && (
           <>
@@ -72,6 +75,7 @@ function App() {
           <Route path="/" element={<MainContent />} />
           <Route path="/aboutus" element={<AboutUs />} />
           <Route path="/contact" element={<Contact />} />
+          <Route path="/vehicles" element={<Vehicles />} />
         </Route>
       </Routes>
     </BrowserRouter>

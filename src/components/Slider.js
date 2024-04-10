@@ -5,6 +5,9 @@ import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/effect-fade";
 import backgroundImg from "../Assets/cover1.jpg";
+import Vehicles from "./Vehicles";
+import { Link } from "react-router-dom";
+
 
 const Slider = () => {
   return (
@@ -12,9 +15,9 @@ const Slider = () => {
       <div className="background_image_overlay">
         <p className="overlay_text">შეიძინე ავტომობილი  საუკეთესო მდგომარეობაში, <br/> საუკეთესო ფასად </p>
         <div className="btn_continer">
-          <div className="my_btn">მძიმე ტექნიკა</div>
+          <Link className="my_btn" >მძიმე ტექნიკა</Link>
 
-          <div className="my_btn"> მსუბუქი ავტომობილები</div>
+          <Link to='vehicles' className="my_btn"> მსუბუქი ავტომობილები</Link>
         </div>
       </div>
     </div>
