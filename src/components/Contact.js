@@ -75,26 +75,7 @@ const Contact = () => {
               <div className="info_description">+995 571 15 30 74</div>
             </div>
           </div>
-          <div className="social_media_icons">
-            <div className="icon_container">
-              <BsInstagram className="icon" />
-            </div>
-            <div className="icon_container">
-              <GrFacebookOption className="icon" />
-            </div>
-            <div className="icon_container">
-              <FiYoutube className="icon" />
-            </div>
-            <div className="icon_container">
-              <FaWhatsapp className="icon" />
-            </div>
-            <div className="icon_container">
-              <FaViber className="icon" />
-            </div>
-            <div className="icon_container">
-              <PiTelegramLogo className="icon" />
-            </div>
-          </div>
+
         </div>
       </div>
     </div>

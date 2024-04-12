@@ -167,21 +167,49 @@
   border: 0;
 }
 
-.online_chat_icons {
+.toggle_social_media {
   position: fixed;
-  bottom: 0.8rem;
+  bottom: 1rem;
   right: 1rem;
-  z-index: 1000;
-}
-.online_chat_icons .icon_container {
-  font-size: 2rem;
-  color: whitesmoke;
+  background-color: whitesmoke;
+  width: 50px;
+  height: 50px;
+  border-radius: 5rem;
+  z-index: 99999;
   cursor: pointer;
-  width: 60px;
-  height: 60px;
   display: flex;
   align-items: center;
   justify-content: center;
+}
+.toggle_social_media .arrow {
+  color: #141d24;
+  font-size: 1.5rem;
+}
+
+.online_chat_icons {
+  position: fixed;
+  bottom: 4.5rem;
+  right: 1rem;
+  height: 0px;
+  border-radius: 5rem;
+  z-index: 1000;
+  display: flex;
+  flex-direction: column;
+  background-color: whitesmoke;
+  transition: height 0.5s ease-in-out;
+}
+.online_chat_icons.expanded {
+  height: 290px;
+}
+.online_chat_icons .icon_container {
+  font-size: 1.5rem;
+  cursor: pointer;
+  width: 50px;
+  min-height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #141d24;
 }
 .online_chat_icons .icon_container:hover {
   cursor: pointer;
@@ -191,14 +219,13 @@
 }
 .online_chat_icons .chat-box {
   position: absolute;
-  right: 0.5rem;
-  bottom: 0.7rem;
+  right: 0rem;
+  bottom: 0rem;
   width: 350px;
   height: 400px;
   background-color: whitesmoke;
   box-shadow: -10px -5px 20px rgba(0, 0, 0, 0.5);
   border-radius: 10px;
-  border-bottom-right-radius: 0;
   padding: 0.5rem;
 }
 .online_chat_icons .chat-box .start_chat {
@@ -482,7 +509,6 @@
 }
 .Frequent_questions .each_question_container {
   width: 100%;
-  height: 100vh;
 }
 .Frequent_questions .each_question_container .question {
   background-color: whitesmoke;
@@ -506,14 +532,20 @@
   font-size: 1.7rem;
 }
 .Frequent_questions .each_question_container .answer {
+  background-color: #141d24;
   font-size: 1.2rem;
   width: 100%;
+  background-color: #1d2933;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  color: whitesmoke;
   max-height: 0;
   overflow: hidden;
-  transition: max-height 0.3s ease; /* Add transition property */
+  transition: max-height 0.5s ease, padding 0.5s ease;
+  border-radius: 5px;
 }
 .Frequent_questions .each_question_container .answer.show {
-  max-height: 500px; /* Or any value that is greater than your content's potential height */
+  max-height: 600px;
 }
 
 .contact {

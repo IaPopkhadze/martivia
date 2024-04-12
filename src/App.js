@@ -11,12 +11,18 @@ import { IoChatbubbleEllipsesSharp } from "react-icons/io5";
 import Vehicles from "./components/Vehicles";
 import { useState } from "react";
 import { IoClose } from "react-icons/io5";
-import { IoIosArrowDown } from "react-icons/io";
-import { IoIosArrowUp } from "react-icons/io";
 
+import { BsInstagram } from "react-icons/bs";
+import { GrFacebookOption } from "react-icons/gr";
+import { FaWhatsapp } from "react-icons/fa";
+import { FiYoutube } from "react-icons/fi";
+import { FaViber } from "react-icons/fa";
+import { PiTelegramLogo } from "react-icons/pi";
+import { IoIosArrowDown, IoIosArrowUp } from "react-icons/io";
 function App() {
   const [startChat, setStartChat] = useState(null);
   const [showChat, setShowChat] = useState(null);
+  const [toggleSocialMedia, setToggleSocialMedia] = useState(false);
   const handleCloseChat = () => {
     setShowChat(false);
   };
@@ -27,12 +33,29 @@ function App() {
   };
   return (
     <BrowserRouter>
-      <div className="online_chat_icons">
-        {/* <span className="icon_container" onClick={handleOpenChat}>
+      <div className={`online_chat_icons ${toggleSocialMedia ? 'expanded':''}`}>
+        <span className="icon_container" >
+          <GrFacebookOption className="icon" />
+        </span>
+        <span className="icon_container" >
+          <BsInstagram className="icon" />
+        </span> 
+        <span className="icon_container" >
+          <FaWhatsapp className="icon" />
+        </span>
+      
+        <span className="icon_container">
+          <FiYoutube className="icon" />
+        </span>
+        <span className="icon_container">
+          <FaViber className="icon" />
+        </span>{" "}
+        <span className="icon_container" >
+          <PiTelegramLogo className="icon" />
+        </span>
+        <span className="icon_container" onClick={handleOpenChat}>
           <IoChatbubbleEllipsesSharp className="icon" />
-        </span> */}
-        
-
+        </span>
         {showChat && (
           <>
             {" "}
@@ -70,6 +93,10 @@ function App() {
           </>
         )}
       </div>
+
+      <div className="toggle_social_media" onClick={() => setToggleSocialMedia(!toggleSocialMedia)}>
+        {toggleSocialMedia ? <IoIosArrowDown className="arrow" /> : <IoIosArrowUp className="arrow" />}
+      </div>
       <Routes>
         <Route element={<Layout />}>
           <Route path="/" element={<MainContent />} />
@@ -83,3 +110,5 @@ function App() {
 }
 
 export default App;
+
+
