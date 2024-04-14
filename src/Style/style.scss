@@ -5,6 +5,7 @@
   text-decoration: none;
   scroll-behavior: smooth;
   scrollbar-width: none;
+
   // overflow: hidden;
   &::-webkit-scrollbar {
     display: none;
@@ -175,7 +176,7 @@ $font-size: 1.1rem;
     }
   }
 }
-.toggle_social_media{
+.toggle_social_media {
   position: fixed;
   bottom: 1rem;
   right: 1rem;
@@ -188,8 +189,8 @@ $font-size: 1.1rem;
   display: flex;
   align-items: center;
   justify-content: center;
-  .arrow{
-    color:#141d24;
+  .arrow {
+    color: #141d24;
     font-size: 1.5rem;
   }
 }
@@ -197,20 +198,18 @@ $font-size: 1.1rem;
   position: fixed;
   bottom: 4.5rem;
   right: 1rem;
-
+  overflow: hidden;
   height: 0px;
- border-radius: 5rem;
+  border-radius: 5rem;
   z-index: 1000;
   display: flex;
   flex-direction: column;
   background-color: whitesmoke;
   transition: height 0.5s ease-in-out;
   &.expanded {
-  height: 290px;
-
+    height: 290px;
   }
   .icon_container {
-
     font-size: 1.5rem;
     cursor: pointer;
     width: 50px;
@@ -218,7 +217,6 @@ $font-size: 1.1rem;
     display: flex;
     align-items: center;
     justify-content: center;
-
 
     color: #141d24;
 
@@ -231,151 +229,149 @@ $font-size: 1.1rem;
   }
 
   //chatis ragaceebi
-  .chat-box {
-    position: absolute;
-    right: 0rem;
-    bottom: 0rem;
-    width: 350px;
-    height: 400px;
-    background-color: whitesmoke;
-    box-shadow: -10px -5px 20px rgb(0, 0, 0, 0.5);
-    border-radius: 10px;
+}
+.responsive_live_chat {
+  z-index: 999999;
+  visibility: hidden;
+  padding: 1rem;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background-color: whitesmoke;
+  display: flex;
+  flex-direction: column;
+  justify-content: end;
+  .chat_content {
+    height: fit-content;
+    color: #141d24;
+    font-size: 1.1rem;
 
-    padding: 0.5rem;
-    .start_chat {
+    width: 100%;
+    height: fit-content;
+  }
+  .chat_typing {
+    width: 100%;
+    height: 50px;
+    display: flex;
+    input {
       width: 100%;
       height: 100%;
+      outline: none;
+      border: 0;
+      border: 1px solid #141d24;
+      border-radius: 5px 0 0 5px;
+      padding-left: 1rem;
+      font-size: 1.2rem;
+    }
+    .send {
+      width: 150px;
+      background-color: #141d24;
+      color: whitesmoke;
       display: flex;
-      flex-direction: column;
+      justify-content: center;
       align-items: center;
-      margin-top: 6rem;
-      gap: 0.5rem;
-      font-family: Alk sanet;
-
-      .chat_input {
-        width: 190px;
-        height: 30px;
-        outline: none;
-        padding-left: 0.5rem;
-        font-size: 1.2rem;
-        text-align: center;
-      }
-      .chat_btn {
-        margin-top: 1.5rem;
-        width: 190px;
-        height: 40px;
-
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        cursor: pointer;
-        border-radius: 50px;
-        background-color: rgb(20, 29, 36, 0.9);
-        color: whitesmoke;
-        transition: 0.4s;
-        &:hover {
-          font-size: 1.1rem;
-          // font-weight: bold;
-          text-shadow: 2px 2px 2px black;
-        }
-      }
+      font-size: 1.2rem;
     }
-    .close_icon_container {
-      width: 100%;
-      text-align: end;
-      .close_icon {
-        position: relative;
-        right: 0;
-        bottom: 0;
-        font-size: 2rem;
-        cursor: pointer;
-      }
+  }
+  .close_chat {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    font-size: 1.1rem;
+    cursor: pointer;
+    padding: 0.3rem 0.5rem;
+    border-radius: 5px;
+  }
+}
+.chat-box {
+  position: fixed;
+  right: 1rem;
+  bottom: 1rem;
+  width: 350px;
+  height: 400px;
+  background-color: whitesmoke;
+  box-shadow: -10px -5px 20px rgb(0, 0, 0, 0.5);
+  border-radius: 10px;
+  z-index: 999999;
+  padding: 0.5rem;
+  .start_chat {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 6rem;
+    gap: 0.5rem;
+    font-family: Alk sanet;
+
+    .chat_input {
+      width: 190px;
+      height: 30px;
+      outline: none;
+      padding-left: 0.5rem;
+      font-size: 1.2rem;
+      text-align: center;
     }
-    .live_chat {
-      width: 100%;
-      height: 90%;
+    .chat_btn {
+      margin-top: 1.5rem;
+      width: 190px;
+      height: 40px;
+
       display: flex;
-      flex-direction: column;
-      .content {
-        width: 100%;
-        flex: 1;
-      }
-      .type_container {
-        height: 40px;
-        width: 100%;
-
-        .txt {
-          outline: none;
-          border: 0;
-          border: 1px solid gray;
-          border-radius: 5px;
-
-          width: 100%;
-          height: 100%;
-          padding-left: 0.5rem;
-        }
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      border-radius: 50px;
+      background-color: rgb(20, 29, 36, 0.9);
+      color: whitesmoke;
+      transition: 0.4s;
+      &:hover {
+        font-size: 1.1rem;
+        // font-weight: bold;
+        text-shadow: 2px 2px 2px black;
       }
     }
   }
-  .responsive_live_chat {
-    visibility: hidden;
-    padding: 1rem;
-    position: fixed;
-    top: 0;
-    left: 0;
+
+  .close_icon_container {
     width: 100%;
-    height: 100vh;
-    background-color: whitesmoke;
+    text-align: end;
+    .close_icon {
+      position: relative;
+      right: 0;
+      bottom: 0;
+      font-size: 2rem;
+      cursor: pointer;
+    }
+  }
+  .live_chat {
+    width: 100%;
+    height: 90%;
     display: flex;
     flex-direction: column;
-    justify-content: end;
-    .chat_content {
-      height: fit-content;
-      color: #141d24;
-      font-size: 1.1rem;
-
+    .content {
       width: 100%;
-      height: fit-content;
+      flex: 1;
     }
-    .chat_typing {
+    .type_container {
+      height: 40px;
       width: 100%;
-      height: 50px;
-      display: flex;
-      input {
-        width: 100%;
-        height: 100%;
+
+      .txt {
         outline: none;
         border: 0;
-        border: 1px solid #141d24;
-        border-radius: 5px 0 0 5px;
-        padding-left: 1rem;
-        font-size: 1.2rem;
+        border: 1px solid gray;
+        border-radius: 5px;
+
+        width: 100%;
+        height: 100%;
+        padding-left: 0.5rem;
       }
-      .send {
-        width: 150px;
-        background-color: #141d24;
-        color: whitesmoke;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        font-size: 1.2rem;
-      }
-    }
-    .close_chat {
-      position: absolute;
-      top: 1rem;
-      right: 1rem;
-      font-size: 1.1rem;
-      cursor: pointer;
-      padding: 0.3rem 0.5rem;
-      border-radius: 5px;
     }
   }
 }
-
-
-
-
 
 .video {
   padding: 0 3rem;
@@ -415,6 +411,7 @@ $font-size: 1.1rem;
         color: #253642;
       }
     }
+
     &:hover {
       .video_overlay {
         background-color: rgb(20, 29, 36, 0.75);
@@ -532,21 +529,12 @@ $font-size: 1.1rem;
   overflow: hidden;
   padding: 3rem 3rem 0 3rem;
   color: whitesmoke;
-
-  .frequent_question_title {
-    font-size: 2rem;
-    font-family: "alk sanet";
-
-    width: 600px;
-    text-align: center;
-    margin: 5rem auto;
-    padding: 1rem;
-    border-top: 1px solid whitesmoke;
-    border-bottom: 1px solid whitesmoke;
-  }
-
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
   .each_question_container {
-    width: 100%;
+    max-width: 1320px;
 
     .question {
       background-color: whitesmoke;
@@ -574,7 +562,7 @@ $font-size: 1.1rem;
       font-size: 1.2rem;
       width: 100%;
       background-color: #1d2933;
-      padding-left: 1rem ;
+      padding-left: 1rem;
       padding-right: 1rem;
       color: whitesmoke;
       max-height: 0;
@@ -583,14 +571,11 @@ $font-size: 1.1rem;
       border-radius: 5px;
     }
 
-    .answer.show {  
+    .answer.show {
       max-height: 600px;
     }
   }
 }
-
-
-
 
 .contact {
   width: 100%;
@@ -603,21 +588,8 @@ $font-size: 1.1rem;
   justify-content: center;
   align-items: center;
   overflow: hidden;
-  .contact_title {
-    font-size: 2rem;
-    font-family: "alk sanet";
-    width: 100%; /* Initially 100% width */
-
-    text-align: center;
-    margin: 5rem auto;
-    padding: 1rem;
-    border-top: 1px solid whitesmoke;
-    border-bottom: 1px solid whitesmoke;
-    transition: width 3.5s ease; /* Use width for transition */
-  }
-
-  .contact_title.show {
-    width: 70%;
+  .main_title {
+    width: 600px;
   }
 
   .contactus {
@@ -713,6 +685,420 @@ $font-size: 1.1rem;
   background-color: #141d24;
 }
 
+.main_title {
+  font-size: 2rem;
+  font-family: "alk sanet";
+
+  max-width: 600px;
+
+  text-align: center;
+  margin: 5rem auto;
+  padding: 1rem;
+  border-top: 1px solid whitesmoke;
+  border-bottom: 1px solid whitesmoke;
+}
+
+.vehicles {
+  width: 100%;
+
+  .vehicles_cover_container {
+    width: 100%;
+    height: 400px;
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+    }
+
+    .vehicles_cover_overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 400px;
+      background: rgba(37, 52, 66, 0.55);
+      display: flex;
+      padding-top: 4rem;
+      align-items: center;
+      flex-direction: column;
+      gap: 5rem;
+      .content_title {
+        color: whitesmoke;
+        font-size: 1.5rem;
+        font-family: "ALK Sanet", sans-serif;
+      }
+      .sorting_fields {
+        width: 90%;
+        display: flex;
+
+        .filter_background_overlay {
+          position: fixed;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100vh;
+          z-index: 9999;
+          background-color: rgba(0, 0, 0, 0.6);
+        }
+        .each_field_container {
+          background-color: whitesmoke;
+          color: #141d24;
+          flex: 1;
+          position: relative;
+
+          .field_title {
+            font-family: "ALK Sanet", sans-serif;
+            font-size: 1.1rem;
+            height: 50px;
+            background-color: whitesmoke;
+            display: flex;
+            justify-content: space-between;
+            padding: 0 1rem;
+            cursor: pointer;
+            align-items: center;
+            border-right: 1px solid rgb(170, 168, 168);
+          }
+          .sorting_field_overlay {
+            position: absolute;
+            background-color: white;
+            top: 60px;
+            min-width: 350px;
+
+            z-index: 9999;
+            border-radius: 5px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            align-items: center;
+            padding: 2rem;
+            gap: 2rem;
+
+            //ლოკაციები
+            .style1 {
+              width: 100%;
+              flex: auto;
+              display: flex;
+              flex-direction: column;
+              gap: 0.6rem;
+              .row {
+                display: flex;
+                align-items: center;
+                gap: 1rem;
+
+                .check_box {
+                  width: 15px;
+                  height: 15px;
+                  box-shadow: 0 0 3px rgba(0, 0, 0, 0.5);
+                }
+                .title {
+                  color: #44484b;
+                  cursor: pointer;
+                  font-size: 1.3rem;
+                }
+              }
+            }
+            //ფასი
+            .style2 {
+              display: flex;
+              gap: 1rem;
+              div {
+                flex: 1;
+                .range {
+                  width: 200px;
+                  height: 50px;
+                  border: none;
+                  outline: none;
+                  font-size: 1.2rem;
+                  color: grey;
+                  padding-left: 0.5rem;
+                  border: 1px solid rgb(227, 224, 224);
+                  border-radius: 10px;
+                  margin-bottom: 0.5rem;
+                }
+                .static_range_container {
+                  display: flex;
+                  flex-direction: column;
+                  justify-content: center;
+                  align-items: center;
+                  scroll-behavior: smooth;
+                  height: 300px;
+                  overflow-y: scroll;
+
+                  span {
+                    margin: 0.2rem;
+                    font-size: 1.2rem;
+                    width: 100%;
+                    padding: 0.2rem;
+                    cursor: pointer;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    &:hover {
+                      background-color: whitesmoke;
+                    }
+                  }
+                }
+              }
+            }
+            .choose {
+              width: 200px;
+              border-radius: 10px;
+              background-color: rgb(0, 87, 128);
+              height: 40px;
+              display: flex;
+              align-items: center;
+              justify-content: center;
+              color: whitesmoke;
+              font-size: 1.1rem;
+              outline: none;
+              &:hover {
+                background-color: rgb(2, 60, 87);
+                text-shadow: 1px 1px 1px black;
+                cursor: pointer;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .vehicle_slider {
+    width: 100%;
+    height: 270px;
+    position: relative;
+
+    .slider_content {
+      width: 90%;
+
+      height: 100%;
+      position: absolute;
+      top: -70px;
+      left: 50%;
+      transform: translateX(-50%);
+      gap: 2rem;
+
+      .each_slider_container {
+        height: 300px;
+
+        position: relative;
+        border-radius: 6px;
+        overflow: hidden;
+        cursor: pointer;
+        img {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+          object-position: center;
+        }
+        .overlay {
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          background: rgb(20, 29, 36, 0.3);
+          display: flex;
+          flex-direction: column;
+          justify-content: space-between;
+          align-items: center;
+          .price {
+            background-color: hwb(0 96% 4%);
+            width: 95%;
+            overflow: hidden;
+            border-radius: 5px;
+            margin: 0.5rem auto;
+            font-size: 1.2rem;
+            font-weight: bold;
+            // font-family: "ALK Sanet", sans-serif;
+            height: 30px;
+            display: flex;
+            align-items: center;
+            padding-left: 0.5rem;
+            color: #3f4950;
+          }
+          .vehicle_name {
+            width: 100%;
+            height: 50px;
+            background-color: #1d2933;
+            display: flex;
+            align-items: center;
+            padding-left: 0.5rem;
+            font-size: 1.2rem;
+            font-family: "ALK Sanet", sans-serif;
+            color: rgb(245, 245, 245, 0.4);
+          }
+        }
+      }
+      .arrow {
+        display: block;
+        color: red;
+      }
+    }
+    .top_offer {
+      width: 90%;
+      position: absolute;
+      left: 50%;
+      bottom: 5px;
+      transform: translateX(-50%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      font-family: "ALK Sanet", sans-serif;
+      color: #999b9d;
+      .line {
+        flex: 1;
+        height: 1px;
+        background-color: #999b9d;
+      }
+    }
+  }
+  .result {
+    display: flex;
+    width: 90%;
+    margin: 3rem auto 0 auto;
+    display: flex;
+    justify-content: space-between;
+    font-size: 1.15rem;
+    color: grey;
+    // box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+    padding: 0.5rem;
+    border-radius: 100px;
+  }
+  .vehicles_container {
+    padding: 3rem 2rem 1rem 2rem;
+    width: 90%;
+
+    margin: 1rem auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+    border-radius: 10px;
+    .each_car_container {
+      box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+      width: 100%;
+      padding: 1rem;
+      border-radius: 5px;
+      display: flex;
+      justify-content: space-between;
+      .left_container {
+        display: flex;
+        gap: 2rem;
+        .car_img {
+          width: 300px;
+          height: 200px;
+          border-radius: 5px;
+          overflow: hidden;
+          img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+          }
+        }
+        .car_description {
+          display: flex;
+          flex-direction: column;
+          color: #374f60;
+          gap: 1rem;
+        }
+      }
+      .right_container {
+        display: flex;
+        justify-content: left;
+        align-items: end;
+        .more_btn {
+          background-color: rgb(0, 87, 128);
+          border-radius: 5px;
+          color: whitesmoke;
+          width: 150px;
+          height: 35px;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          cursor: pointer;
+          &:hover {
+            background-color: rgb(2, 60, 87);
+            text-shadow: 1px 1px 1px black;
+          }
+        }
+      }
+      .vehicle_pop_up {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.2);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        .pop_up_container {
+          position: relative;
+          border-radius: 30px;
+          width: 90%;
+          height: 85%;
+          background-color: whitesmoke;
+          .close {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            color: #253642;
+            cursor: pointer;
+          }
+        }
+      }
+    }
+    .pagination {
+      padding: 0.4rem 0;
+      width: 100%;
+      border-radius: 50px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 1rem;
+      box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+      .btn {
+        font-size: 1.2rem;
+        color: #374f60;
+        cursor: pointer;
+      }
+      .page_numbers_container {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 0.5rem;
+        span {
+          border: 1px solid #b1bdc6;
+          color: #8499a7;
+          width: 25px;
+          height: 25px;
+          border-radius: 100%;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          cursor: pointer;
+          transition: 0.3s;
+          &:hover {
+            background-color: rgb(74, 72, 72);
+            color: whitesmoke;
+          }
+        }
+      }
+    }
+  }
+}
+
+.slick-slide > div {
+  margin: 0 5px;
+}
+
 @media screen and (max-width: 1000px) {
   .header {
     font-size: 0.9rem;
@@ -759,6 +1145,16 @@ $font-size: 1.1rem;
 }
 
 @media screen and (max-width: 600px) {
+  .main_title {
+    font-size: 1.4rem;
+    margin: 3rem auto;
+    width: 100%;
+  }
+  .contact {
+    .main_title {
+      width: 90%;
+    }
+  }
   .background_image_container {
     .background_image_overlay {
       .overlay_text {
@@ -897,5 +1293,3 @@ $font-size: 1.1rem;
     }
   }
 }
-
-// color: #141d24;

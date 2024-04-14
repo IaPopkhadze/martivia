@@ -56,6 +56,8 @@ function App() {
         <span className="icon_container" onClick={handleOpenChat}>
           <IoChatbubbleEllipsesSharp className="icon" />
         </span>
+
+      </div>
         {showChat && (
           <>
             {" "}
@@ -92,8 +94,6 @@ function App() {
             </div>
           </>
         )}
-      </div>
-
       <div className="toggle_social_media" onClick={() => setToggleSocialMedia(!toggleSocialMedia)}>
         {toggleSocialMedia ? <IoIosArrowDown className="arrow" /> : <IoIosArrowUp className="arrow" />}
       </div>

@@ -15,9 +15,9 @@ const Slider = () => {
       <div className="background_image_overlay">
         <p className="overlay_text">შეიძინე ავტომობილი  საუკეთესო მდგომარეობაში, <br/> საუკეთესო ფასად </p>
         <div className="btn_continer">
-          <Link className="my_btn" >მძიმე ტექნიკა</Link>
+      
 
-          <Link to='vehicles' className="my_btn"> მსუბუქი ავტომობილები</Link>
+          <Link to='vehicles' className="my_btn"> მსუბუქი ავტომობილები</Link>    <Link className="my_btn" >მძიმე ტექნიკა</Link>
         </div>
       </div>
     </div>

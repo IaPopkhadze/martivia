@@ -47,7 +47,7 @@ const FrequentQuestions = () => {
 
   return (
     <div className="Frequent_questions">
-      <p className="frequent_question_title">ხშირად დასმული კითხვები...</p>
+      <p className="main_title">ხშირად დასმული კითხვები...</p>
       <div className="each_question_container">
         {questionAnswer.map((element, index) => (
           <div className="each_question_container-content" key={index} onClick={() => toggleAnswer(index)}>

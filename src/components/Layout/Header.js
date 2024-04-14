@@ -26,7 +26,7 @@ const Header = () => {
   }, []);
 
   const handleMainClick = () => {
-    if (pathname === "/aboutus") {
+    if (pathname === "/aboutus" || pathname==="/vehicles") {
       navigate("/");
     } else {
       console.log("Smooth scrolling to main");
@@ -49,10 +49,10 @@ const Header = () => {
         <img src={logo} alt="" />
       </ScrollLink>
       <div className="navigation">
-        <ScrollLink to={pathname === "/aboutus" ? "/" : "background_image_container"} className="nav-link" onClick={handleMainClick}>
+        <ScrollLink to={(pathname === "/aboutus" || pathname === "/vehicles" ) ? "/" : "background_image_container"} className="nav-link" onClick={handleMainClick}>
           მთავარი
         </ScrollLink>
-        {pathname !== "/aboutus" && (
+        {(pathname !== "/aboutus" && pathname !=="/vehicles" ) && (
           <>
             <ScrollLink to="Frequent_questions" className="nav-link">
               ხშირად დასმული კითხვები

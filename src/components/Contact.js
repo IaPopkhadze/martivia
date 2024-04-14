@@ -5,16 +5,11 @@ import { MdAttachEmail } from "react-icons/md";
 import { BiSolidPhoneCall } from "react-icons/bi";
 import { MdOutlineAccessTimeFilled } from "react-icons/md";
 import { useEffect } from "react";
-import { BsInstagram } from "react-icons/bs";
-import { GrFacebookOption } from "react-icons/gr";
-import { FaWhatsapp } from "react-icons/fa";
-import { FiYoutube } from "react-icons/fi";
-import { FaViber } from "react-icons/fa";
-import { PiTelegramLogo } from "react-icons/pi";
+
 
 const Contact = () => {
   useEffect(() => {
-    const title = document.querySelector(".contact_title");
+  
     const videoContainers = document.querySelectorAll(".map_container");
     const contactInfo = document.querySelector(".contact_info");
 
@@ -28,12 +23,7 @@ const Contact = () => {
           box.classList.remove("show");
         }
       });
-      const titleTop = title.getBoundingClientRect().top;
-      if (titleTop < triggerBottom) {
-        title.classList.add("show");
-      } else {
-        title.classList.remove("show");
-      }
+
 
       const contactInfoTop = contactInfo.getBoundingClientRect().top;
       if (contactInfoTop < triggerBottom) {
@@ -51,7 +41,7 @@ const Contact = () => {
 
   return (
     <div className="contact">
-      <p className="contact_title"> კონტაქტი</p>
+      <p className="main_title"> კონტაქტი</p>
       <div className="contactus">
         <div className="map_container">
           <img className="map_img" src={map} alt="" />
