@@ -232,7 +232,7 @@ const Vehicles = () => {
           </Slider>
         </div>
         <div className="top_offer">
-          ტოპ შეთავაზებები
+  <i>        ტოპ შეთავაზებები</i>
           <div className="line"></div>
         </div>
       </div>{" "}
@@ -267,17 +267,13 @@ const Vehicles = () => {
                 </div>
               </div>
               <div className="right_container">
-                <div className="more_btn" onClick={() => setOpenVehicleDetail(true)}>
+                <div className="more_btn " onClick={() => setOpenVehicleDetail(true)}>
                   ვრცლად ნახვა
                 </div>
               </div>
               {openVehicleDetail && (
                 <div className="vehicle_pop_up">
-                  <div className="pop_up_container">
-                    <div className="close" onClick={() => setOpenVehicleDetail(false)}>
-                      X
-                    </div>
-                  </div>
+                
                 </div>
               )}
             </div>
