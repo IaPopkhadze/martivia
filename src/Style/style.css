@@ -665,6 +665,7 @@
 .vehicles .vehicles_cover_container {
   width: 100%;
   height: 400px;
+  position: relative;
 }
 .vehicles .vehicles_cover_container img {
   width: 100%;
@@ -987,7 +988,8 @@
   border-radius: 5px;
   font-family: alk sanet;
   color: whitesmoke;
-  padding: 1rem 2rem;
+  width: 150px;
+  height: 50px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -1185,6 +1187,132 @@
     grid-template-columns: repeat(6, 1fr);
     padding-bottom: 2rem;
   }
+  .vehicles .vehicles_cover_container {
+    height: -moz-fit-content;
+    height: fit-content;
+    gap: 1rem;
+  }
+  .vehicles .vehicles_cover_container img {
+    display: none;
+  }
+  .vehicles .vehicles_cover_container .vehicles_cover_overlay {
+    height: 100%;
+    gap: 2.5rem;
+    position: sticky;
+    background: #1f2a32;
+  }
+  .vehicles .vehicles_cover_container .vehicles_cover_overlay .sorting_fields {
+    padding-bottom: 1rem;
+    flex-direction: column;
+  }
+  .vehicles .vehicles_cover_container .vehicles_cover_overlay .sorting_fields .each_field_container .field_title {
+    border-bottom: 1px solid rgb(222, 217, 217);
+  }
+  .vehicles .vehicles_cover_container .vehicles_cover_overlay .sorting_fields .each_field_container .sorting_field_overlay {
+    display: none;
+  }
+  .vehicles .vehicles_cover_container .vehicles_cover_overlay .sorting_fields .filter_background_overlay {
+    display: none;
+  }
+  .vehicles .vehicle_slider {
+    width: 100%;
+    position: relative;
+  }
+  .vehicles .vehicle_slider .slider_content {
+    width: 90%;
+    position: sticky;
+    padding: 0 0.5rem;
+    transform: translateX(-6%);
+    gap: 0;
+  }
+  .vehicles .vehicle_slider .slider_content .each_slider_container {
+    height: 300px;
+    margin-top: 2.5rem;
+    position: relative;
+    border-radius: 6px;
+    overflow: hidden;
+    cursor: pointer;
+  }
+  .vehicles .vehicle_slider .slider_content .each_slider_container img {
+    width: 100%;
+    height: 100%;
+    -o-object-fit: cover;
+       object-fit: cover;
+    -o-object-position: center;
+       object-position: center;
+  }
+  .vehicles .vehicle_slider .slider_content .each_slider_container .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(20, 29, 36, 0.6);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .vehicles .vehicle_slider .slider_content .each_slider_container .overlay:hover {
+    background: rgba(20, 29, 36, 0.1);
+  }
+  .vehicles .vehicle_slider .slider_content .each_slider_container .overlay .price {
+    width: 95%;
+    overflow: hidden;
+    border-radius: 5px;
+    margin: 0.5rem auto;
+    font-size: 1.2rem;
+    font-weight: bold;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    padding-left: 0.5rem;
+    color: whitesmoke;
+  }
+  .vehicles .vehicle_slider .slider_content .each_slider_container .overlay .vehicle_name {
+    width: 100%;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    padding-left: 0.5rem;
+    font-size: 1.2rem;
+    font-family: "ALK Sanet", sans-serif;
+    color: whitesmoke;
+  }
+  .vehicles .vehicle_slider .slider_content .arrow {
+    display: block;
+    color: red;
+  }
+  .vehicles .vehicle_slider .top_offer {
+    position: static;
+    transform: none;
+    margin: 2rem auto;
+  }
+  .vehicles .result {
+    margin: 5rem auto 1rem auto;
+  }
+  .vehicles .vehicles_container .each_car_container {
+    flex-direction: column;
+    gap: 1rem;
+  }
+  .vehicles .vehicles_container .each_car_container .left_container {
+    flex-direction: column;
+    width: 100%;
+    gap: 1rem;
+  }
+  .vehicles .vehicles_container .each_car_container .left_container .car_img {
+    width: 100%;
+  }
+  .vehicles .vehicles_container .each_car_container .left_container .car_img img {
+    width: 100%;
+  }
+  .vehicles .vehicles_container .each_car_container .right_container {
+    margin: 0.8rem auto;
+    width: 100%;
+  }
+  .vehicles .vehicles_container .each_car_container .right_container .more_btn {
+    width: 100%;
+  }
 }
 @media screen and (max-width: 600px) {
   .contact .contactus .contact_info .each_info_container {
@@ -1201,10 +1329,31 @@
   .contact .contactus .contact_info .social_media_icons .icon_container {
     margin: 1rem;
   }
+  .vehicles .vehicles_cover_container .vehicles_cover_overlay .content_title {
+    text-align: center;
+    font-size: 1.1rem;
+    width: 100%;
+    margin-top: 1rem;
+  }
 }
 @media screen and (max-width: 900px) {
   .responsive_live_chat {
     visibility: visible !important;
+  }
+}
+@media screen and (max-width: 1000px) {
+  .vehicles .vehicles_cover_container .vehicles_cover_overlay .content_title {
+    text-align: center;
+    width: 100%;
+    margin-top: 1rem;
+  }
+  .vehicles .vehicles_container .each_car_container .left_container .car_description .description_row {
+    font-size: 0.9rem;
+  }
+  .vehicles .vehicles_container .each_car_container .right_container .more_btn {
+    font-size: 0.9rem;
+    height: 45px;
+    padding: 0.4rem;
   }
 }
 @media screen and (max-width: 700px) {

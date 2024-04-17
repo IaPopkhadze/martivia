@@ -5,7 +5,7 @@
   text-decoration: none;
   scroll-behavior: smooth;
   scrollbar-width: none;
- user-select: none;
+  user-select: none;
   // overflow: hidden;
   &::-webkit-scrollbar {
     display: none;
@@ -704,6 +704,7 @@ $font-size: 1.1rem;
   .vehicles_cover_container {
     width: 100%;
     height: 400px;
+    position: relative;
     img {
       width: 100%;
       height: 100%;
@@ -1004,7 +1005,7 @@ $font-size: 1.1rem;
       border-radius: 10px;
       background: #1f2a32;
       box-shadow: 5px 5px 10px #131a1f, -5px -5px 10px #2b3a45;
-      
+
       .left_container {
         display: flex;
         gap: 2rem;
@@ -1037,11 +1038,12 @@ $font-size: 1.1rem;
         justify-content: left;
         align-items: end;
         .more_btn {
-
           border-radius: 5px;
           font-family: alk sanet;
           color: whitesmoke;
-          padding: 1rem 2rem;
+          // padding: 1rem 2rem;
+          width: 150px;
+          height: 50px;
           display: flex;
           justify-content: center;
           align-items: center;
@@ -1049,15 +1051,9 @@ $font-size: 1.1rem;
           border-radius: 6px;
           background: #1f2a32;
           box-shadow: 5px 5px 8px #192229, -5px -5px 8px #25323c;
-
-          // &:hover {
-          //   background-color: rgb(2, 60, 87);
-          //   text-shadow: 1px 1px 1px black;
-          // }
         }
-        .more_btn:active{
+        .more_btn:active {
           box-shadow: inset 5px 5px 8px #192229, inset -5px -5px 8px #25323c;
-
         }
       }
       .vehicle_pop_up {
@@ -1278,6 +1274,144 @@ $font-size: 1.1rem;
       }
     }
   }
+  .vehicles {
+    .vehicles_cover_container {
+      height: fit-content;
+      gap: 1rem;
+
+      img {
+        display: none;
+      }
+      .vehicles_cover_overlay {
+        height: 100%;
+        gap: 2.5rem;
+        position: sticky;
+        background: #1f2a32;
+        .sorting_fields {
+          padding-bottom: 1rem;
+          flex-direction: column;
+          .each_field_container {
+            .field_title {
+              border-bottom: 1px solid rgb(222, 217, 217);
+            }
+            .sorting_field_overlay {
+              display: none;
+            }
+          }
+          .filter_background_overlay {
+            display: none;
+          }
+        }
+      }
+    }
+    .vehicle_slider {
+      width: 100%;
+
+      position: relative;
+
+      .slider_content {
+        width: 90%;
+        position: sticky;
+        padding: 0 0.5rem;
+        transform: translateX(-6%);
+        gap: 0;
+        .each_slider_container {
+          height: 300px;
+          margin-top: 2.5rem;
+          position: relative;
+          border-radius: 6px;
+          overflow: hidden;
+          cursor: pointer;
+          img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+          }
+          .overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgb(20, 29, 36, 0.6);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            align-items: center;
+            &:hover {
+              background: rgb(20, 29, 36, 0.1);
+            }
+            .price {
+              // background-color: hwb(0 96% 4%);
+              width: 95%;
+              overflow: hidden;
+              border-radius: 5px;
+              margin: 0.5rem auto;
+              font-size: 1.2rem;
+              font-weight: bold;
+              // font-family: "ALK Sanet", sans-serif;
+              height: 30px;
+              display: flex;
+              align-items: center;
+              padding-left: 0.5rem;
+              color: whitesmoke;
+            }
+            .vehicle_name {
+              width: 100%;
+              height: 50px;
+
+              display: flex;
+              align-items: center;
+              padding-left: 0.5rem;
+              font-size: 1.2rem;
+              font-family: "ALK Sanet", sans-serif;
+              color: whitesmoke;
+            }
+          }
+        }
+        .arrow {
+          display: block;
+          color: red;
+        }
+      }
+      .top_offer {
+        position: static;
+        transform: none;
+
+        margin: 2rem auto;
+      }
+    }
+    .result {
+      margin: 5rem auto 1rem auto;
+    }
+    .vehicles_container {
+      .each_car_container {
+        flex-direction: column;
+        gap: 1rem;
+        .left_container {
+          flex-direction: column;
+          width: 100%;
+          gap: 1rem;
+          .car_img {
+            width: 100%;
+
+            img {
+              width: 100%;
+            }
+          }
+        }
+        .right_container {
+          margin: 0.8rem auto;
+          width: 100%;
+
+          .more_btn {
+            width: 100%;
+          }
+        }
+      }
+    }
+  }
 }
 
 @media screen and (max-width: 600px) {
@@ -1302,11 +1436,57 @@ $font-size: 1.1rem;
       }
     }
   }
+  .vehicles {
+    .vehicles_cover_container {
+      .vehicles_cover_overlay {
+        .content_title {
+          text-align: center;
+          font-size: 1.1rem;
+          width: 100%;
+          margin-top: 1rem;
+        }
+      }
+    }
+  }
 }
 
 @media screen and (max-width: 900px) {
   .responsive_live_chat {
     visibility: visible !important;
+  }
+}
+
+@media screen and (max-width: 1000px) {
+  .vehicles {
+    .vehicles_cover_container {
+      .vehicles_cover_overlay {
+        .content_title {
+          text-align: center;
+
+          width: 100%;
+          margin-top: 1rem;
+        }
+      }
+    }
+    .vehicles_container {
+      .each_car_container {
+        .left_container {
+          .car_description {
+            .description_row {
+              font-size: 0.9rem;
+            }
+          }
+        }
+        .right_container {
+          .more_btn {
+            font-size: 0.9rem;
+            // width: 150px ;
+            height: 45px;
+            padding: 0.4rem;
+          }
+        }
+      }
+    }
   }
 }
 

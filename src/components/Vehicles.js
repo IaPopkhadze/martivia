@@ -103,6 +103,14 @@ const Vehicles = () => {
     initialSlide: 0,
     responsive: [
       {
+        breakpoint: 1300,
+        settings: {
+          slidesToShow: 4,
+          slidesToScroll: 1,
+          infinite: true,
+        },
+      },
+      {
         breakpoint: 1024,
         settings: {
           slidesToShow: 3,
@@ -111,7 +119,7 @@ const Vehicles = () => {
         },
       },
       {
-        breakpoint: 600,
+        breakpoint: 700,
         settings: {
           slidesToShow: 2,
           slidesToScroll: 2,
@@ -288,13 +296,7 @@ const Vehicles = () => {
             <span>1</span>
             <span>2</span>
             <span>3</span>
-            <span>4</span>
-            <span>5</span>
-            <span>1</span>
-            <span>2</span>
-            <span>3</span>
-            <span>4</span>
-            <span>5</span>
+
           </div>
           <div className="btn">
             <RxDoubleArrowRight />
