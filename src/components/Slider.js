@@ -17,7 +17,8 @@ const Slider = () => {
         <div className="btn_continer">
       
 
-          <Link to='vehicles' className="my_btn"> მსუბუქი ავტომობილები</Link>    <Link className="my_btn" >მძიმე ტექნიკა</Link>
+          <Link to='vehicles' className="my_btn"> მსუბუქი ავტომობილები</Link>  
+          <Link to='heavyequipment' className="my_btn" >მძიმე ტექნიკა</Link>
         </div>
       </div>
     </div>

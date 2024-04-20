@@ -35,7 +35,7 @@ const Header = () => {
   };
 
   const handleMenuClose = () => {
-    if (pathname === "/aboutus") {
+    if (pathname === "/aboutus" || pathname === "/vehicles") {
       navigate("/");
     } else {
       console.log("Smooth scrolling to main");
@@ -70,16 +70,16 @@ const Header = () => {
       <RxHamburgerMenu className="header_icon" onClick={() => setHandleHamburgerMenu(true)} />
       {handleHamburgerMenu && (
         <div className="resaponsiver_menu_overlay">
-          <ScrollLink onClick={handleMenuClose} to={pathname === "/aboutus" ? "/" : "background_image_container"} className="nav-link">
+          <ScrollLink onClick={handleMenuClose} to={(pathname === "/aboutus" || pathname === "/vehicles") ? "/" : "background_image_container"} className="nav-link">
             მთავარი
           </ScrollLink>
 
-          {pathname !== "/aboutus" && <>
+          {(pathname !== "/aboutus" &&  pathname !== "/vehicles") && <>
             <ScrollLink onClick={handleMenuClose} to="Frequent_questions" className="nav-link">
               ხშირად დასმული კითხვები
             </ScrollLink>{" "}
             <ScrollLink onClick={handleMenuClose} to="contact" className="nav-link">
-              კონტაქტი
+              კონტაქტი  
             </ScrollLink>
           </>}
           

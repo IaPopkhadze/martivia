@@ -737,6 +737,7 @@
   align-items: center;
   padding: 2rem;
   gap: 2rem;
+  animation: filterpopup 0.3s linear;
 }
 .vehicles .vehicles_cover_container .vehicles_cover_overlay .sorting_fields .each_field_container .sorting_field_overlay .style1 {
   width: 100%;
@@ -1062,6 +1063,40 @@
   margin: 0;
 }
 
+.filter_menu_popup_container {
+  width: 100%;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: rgba(21, 29, 34, 0.6);
+}
+
+.heavy_equipment {
+  width: 100%;
+  height: 100vh;
+  background-color: #1f2a32;
+}
+
+@keyframes filterpopup {
+  0% {
+    transform: translateY(-50%) scale(0);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0px) scale(1);
+    opacity: 1;
+  }
+}
+@keyframes expandfilteroverlay {
+  0% {
+    height: 0px;
+  }
+  100% {
+    height: -moz-fit-content;
+    height: fit-content;
+  }
+}
 @media screen and (max-width: 1000px) {
   .header {
     font-size: 0.9rem;
@@ -1204,12 +1239,15 @@
   .vehicles .vehicles_cover_container .vehicles_cover_overlay .sorting_fields {
     padding-bottom: 1rem;
     flex-direction: column;
+    gap: 0.5rem;
   }
   .vehicles .vehicles_cover_container .vehicles_cover_overlay .sorting_fields .each_field_container .field_title {
     border-bottom: 1px solid rgb(222, 217, 217);
   }
   .vehicles .vehicles_cover_container .vehicles_cover_overlay .sorting_fields .each_field_container .sorting_field_overlay {
-    display: none;
+    position: static;
+    background-color: whitesmoke;
+    animation: expandfilteroverlay 0.5s ease-in-out;
   }
   .vehicles .vehicles_cover_container .vehicles_cover_overlay .sorting_fields .filter_background_overlay {
     display: none;

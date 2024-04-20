@@ -75,6 +75,8 @@ const Vehicles = () => {
       price: "$350,000",
     },
   ];
+
+  
   const [filter, setFilter] = useState(["ქვეყანა", "ფასი", "წელი", "მწარმოებელი", "მოდელი"]);
   const [locations, setLocation] = useState(["საქართველო", "სამხრეთ ამერიკა", "გერმანია", "კორეა"]);
   const CustomPrevArrow = (props) => {
@@ -156,7 +158,7 @@ const Vehicles = () => {
       <div className="vehicles_cover_container">
         <img src={cover} alt="img" />
         <div className="vehicles_cover_overlay">
-          <p className="content_title">მოიძიეთ თქვენთვის სასურველი ავტომობილი</p>
+          <p className="content_title"  >მოიძიეთ თქვენთვის სასურველი ავტომობილი</p>
           <div className="sorting_fields">
             {activeFilterIndex !== null && activeFilterIndex >= 0 ? <div className="filter_background_overlay" onClick={() => setActiveFilterIndex(null)}></div> : null}
 
@@ -167,9 +169,9 @@ const Vehicles = () => {
                     {element} <IoIosArrowDown />
                   </div>
                   {activeFilterIndex === index ? (
-                    <div className="sorting_field_overlay">
+                    <div className="sorting_field_overlay ">
                       {(activeFilterIndex == 0 || activeFilterIndex == 3 || activeFilterIndex == 4) && (
-                        <div className="style1">
+                        <div className="style1 ">
                           {locations.map((element, index) => {
                             return (
                               <div className="row" key={index}>

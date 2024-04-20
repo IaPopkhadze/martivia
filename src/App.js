@@ -4,6 +4,7 @@ import Layout from "./components/Layout/Layout";
 import Contact from "./components/Contact";
 import AboutUs from "./components/AboutUs";
 import MainContent from "./components/MainContent";
+import HeavyEquipment from "./components/HeavyEquipment";
 import "../node_modules/alk-sanet/css/alk-sanet.min.css";
 import "bpg-arial-caps/css/bpg-arial-caps.min.css";
 import "/node_modules/bpg-algeti/css/bpg-algeti.min.css";
@@ -103,6 +104,7 @@ function App() {
           <Route path="/aboutus" element={<AboutUs />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/vehicles" element={<Vehicles />} />
+          <Route path="/HeavyEquipment" element={<HeavyEquipment />} />
         </Route>
       </Routes>
     </BrowserRouter>
