@@ -5,6 +5,7 @@ import { IoMdClose } from "react-icons/io";
 import { Link as RouterLink, useNavigate } from "react-router-dom";
 import { Link as ScrollLink } from "react-scroll";
 import { useLocation } from "react-router-dom";
+import { SiJsonwebtokens } from "react-icons/si";
 
 const Header = () => {
   const [scrollPosition, setScrollPosition] = useState(window.scrollY);
@@ -14,6 +15,9 @@ const Header = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
+
+    const fav = localStorage.getItem("ravisaxeli")
+
     const handleScroll = () => {
       const position = window.scrollY;
       setScrollPosition(position);
@@ -26,7 +30,7 @@ const Header = () => {
   }, []);
 
   const handleMainClick = () => {
-    if (pathname === "/aboutus" || pathname==="/vehicles") {
+    if (pathname === "/heavyequipment" || pathname === "/vehicles") {
       navigate("/");
     } else {
       console.log("Smooth scrolling to main");
@@ -35,7 +39,7 @@ const Header = () => {
   };
 
   const handleMenuClose = () => {
-    if (pathname === "/aboutus" || pathname === "/vehicles") {
+    if (pathname === "/heavyequipment" || pathname === "/vehicles") {
       navigate("/");
     } else {
       console.log("Smooth scrolling to main");
@@ -49,43 +53,52 @@ const Header = () => {
         <img src={logo} alt="" />
       </ScrollLink>
       <div className="navigation">
-        <ScrollLink to={(pathname === "/aboutus" || pathname === "/vehicles" ) ? "/" : "background_image_container"} className="nav-link" onClick={handleMainClick}>
+        <ScrollLink to={pathname === "/heavyequipment" || pathname === "/vehicles" ? "/" : "background_image_container"} className="nav-link" onClick={handleMainClick}>
           მთავარი
         </ScrollLink>
-        {(pathname !== "/aboutus" && pathname !=="/vehicles" ) && (
+        {pathname !== "/heavyequipment" && pathname !== "/vehicles" && (
           <>
+            {" "}
+            <ScrollLink to="videos" className="nav-link">
+              ვიდეოები
+            </ScrollLink>
             <ScrollLink to="Frequent_questions" className="nav-link">
               ხშირად დასმული კითხვები
+            </ScrollLink>{" "}
+            <ScrollLink to="about_us" className="nav-link">
+              ჩვენს შესახებ
             </ScrollLink>
             <ScrollLink to="contact" className="nav-link">
               კონტაქტი
-            </ScrollLink>
+            </ScrollLink>{" "}
           </>
         )}
-
-        <RouterLink to="/aboutus" className="nav-link">
-          ჩვენს შესახებ
-        </RouterLink>
       </div>
       <RxHamburgerMenu className="header_icon" onClick={() => setHandleHamburgerMenu(true)} />
       {handleHamburgerMenu && (
         <div className="resaponsiver_menu_overlay">
-          <ScrollLink onClick={handleMenuClose} to={(pathname === "/aboutus" || pathname === "/vehicles") ? "/" : "background_image_container"} className="nav-link">
+          <ScrollLink onClick={handleMenuClose} to={pathname === "/aboutus" || pathname === "/vehicles" ? "/" : "background_image_container"} className="nav-link">
             მთავარი
           </ScrollLink>
 
-          {(pathname !== "/aboutus" &&  pathname !== "/vehicles") && <>
-            <ScrollLink onClick={handleMenuClose} to="Frequent_questions" className="nav-link">
-              ხშირად დასმული კითხვები
-            </ScrollLink>{" "}
-            <ScrollLink onClick={handleMenuClose} to="contact" className="nav-link">
-              კონტაქტი  
-            </ScrollLink>
-          </>}
-          
-          <ScrollLink onClick={handleMenuClose} to="about_us" className="nav-link">
-            ჩვენს შესახებ
-          </ScrollLink>
+          {pathname !== "/heavyequipment" && pathname !== "/vehicles" && (
+            <>
+              {" "}
+              <ScrollLink to="videos" className="nav-link">
+                ვიდეოები
+              </ScrollLink>
+              <ScrollLink onClick={handleMenuClose} to="Frequent_questions" className="nav-link">
+                ხშირად დასმული კითხვები
+              </ScrollLink>{" "}
+              <ScrollLink onClick={handleMenuClose} to="about_us" className="nav-link">
+                ჩვენს შესახებ
+              </ScrollLink>{" "}
+              <ScrollLink onClick={handleMenuClose} to="contact" className="nav-link">
+                კონტაქტი
+              </ScrollLink>{" "}
+            </>
+          )}
+
           <IoMdClose className="header_icon" onClick={handleMenuClose} />
         </div>
       )}

@@ -10,10 +10,20 @@ import pic3 from "../Assets/cover.webp";
 import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io";
 import { RxDoubleArrowRight } from "react-icons/rx";
 import { RxDoubleArrowLeft } from "react-icons/rx";
+import { IoMdClose } from "react-icons/io";
+import { FaStar } from "react-icons/fa6";
+import { MdZoomInMap } from "react-icons/md";
+
+import { FaAngleRight } from "react-icons/fa6";
+import { FaAngleLeft } from "react-icons/fa6";
+import { MdOutlineZoomOutMap } from "react-icons/md";
+import { json } from "react-router-dom";
 
 const Vehicles = () => {
   const [activeFilterIndex, setActiveFilterIndex] = useState(null);
   const [openVehicleDetail, setOpenVehicleDetail] = useState(null);
+  const [addAsFav, setAddAsFav] = useState(false);
+  const [fullSizeImg, setFullSizeImg] = useState(null);
   const handleFilterClick = (index) => {
     setActiveFilterIndex(index === activeFilterIndex ? null : index);
   };
@@ -75,8 +85,7 @@ const Vehicles = () => {
       price: "$350,000",
     },
   ];
-
-  
+  const [imageCurrentIndex, setImageCurrentIndex] = useState(0);
   const [filter, setFilter] = useState(["ქვეყანა", "ფასი", "წელი", "მწარმოებელი", "მოდელი"]);
   const [locations, setLocation] = useState(["საქართველო", "სამხრეთ ამერიკა", "გერმანია", "კორეა"]);
   const CustomPrevArrow = (props) => {
@@ -88,6 +97,9 @@ const Vehicles = () => {
     );
   };
 
+  //ლოკალსთორიჯში ჩაწერა, წამოღება
+  // console.log(JSON.parse(localStorage.getItem("ravisaxeli")));
+  // localStorage.setItem("ravisaxeli", JSON.stringify(filter));
   const CustomNextArrow = (props) => {
     const { className, style, onClick } = props;
     return (
@@ -153,12 +165,33 @@ const Vehicles = () => {
     { price: "$55 500 - 1 000", vehicle: "Ford Fustion 199", img: cover },
     { price: "$55 000 - 1 000", vehicle: "Ford Fustion 199", img: pic1 },
   ];
+
+  const vehicleSlider = [cover, pic2, pic3, cover, pic3, cover, pic2, pic3, cover, pic3, cover, pic2, pic3, cover, pic3, cover, pic2, pic3, cover, pic3, cover, pic2, pic3, cover, pic3, cover, pic2, pic3, cover, pic3];
+
+  const handlePrevImage = () => {
+    setImageCurrentIndex((prevIndex) => {
+      if (fullSizeImg) setFullSizeImg(vehicleSlider[prevIndex - 1]);
+      if (prevIndex > 0) {
+        return prevIndex - 1;
+      } else {
+        return vehicleSlider.length - 1;
+      }
+    });
+  };
+
+  const handleNextImage = () => {
+    setImageCurrentIndex((prevIndex) => {
+      if (fullSizeImg) setFullSizeImg(vehicleSlider[(prevIndex + 1) % vehicleSlider.length]);
+      return (prevIndex + 1) % vehicleSlider.length;
+    });
+  };
+
   return (
     <div className="vehicles">
       <div className="vehicles_cover_container">
         <img src={cover} alt="img" />
         <div className="vehicles_cover_overlay">
-          <p className="content_title"  >მოიძიეთ თქვენთვის სასურველი ავტომობილი</p>
+          <p className="content_title">მოიძიეთ თქვენთვის სასურველი ავტომობილი</p>
           <div className="sorting_fields">
             {activeFilterIndex !== null && activeFilterIndex >= 0 ? <div className="filter_background_overlay" onClick={() => setActiveFilterIndex(null)}></div> : null}
 
@@ -242,7 +275,7 @@ const Vehicles = () => {
           </Slider>
         </div>
         <div className="top_offer">
-  <i>        ტოპ შეთავაზებები</i>
+          <i> ტოპ შეთავაზებები</i>
           <div className="line"></div>
         </div>
       </div>{" "}
@@ -283,7 +316,91 @@ const Vehicles = () => {
               </div>
               {openVehicleDetail && (
                 <div className="vehicle_pop_up">
-                
+                  <div className="overlay_content">
+                    {" "}
+                    <div className="top_content">
+                      <div className="vehicle_name">
+                        <span>BMW M3</span>
+                      </div>
+                      <div className="top_right">
+                        <div className="add_favourite" style={addAsFav ? { color: "green" } : null} onClick={() => setAddAsFav(!addAsFav)}>
+                          {addAsFav ? "რჩეულებიდან წაშლა" : "რჩეულებში დამატება"} <FaStar />{" "}
+                        </div>
+                        <IoMdClose className="close_btn" onClick={() => setOpenVehicleDetail(false)} style={{ fontSize: "1.5rem", cursor: "pointer" }} />
+                      </div>
+                    </div>
+                    {fullSizeImg ? (
+                      <div className="full_size_img">
+                        <img src={`${fullSizeImg}`} alt="" />
+                        <MdZoomInMap className="zoom_out" onClick={() => setFullSizeImg(null)} />
+                        <div className="shown_img_overlay">
+                          <div className="btn_container">
+                            {" "}
+                            <FaAngleLeft className="btn" onClick={() => handlePrevImage()} />
+                            <FaAngleRight className="btn" onClick={() => handleNextImage()} />
+                          </div>
+                        </div>
+                      </div>
+                    ) : (
+                      <>
+                        {" "}
+                        <div className="middle_content">
+                          <div className="vehicle_sliderr">
+                            <div className={`shown_img ${fullSizeImg ? "full_size" : ""}`}>
+                              <img src={vehicleSlider[imageCurrentIndex]} alt="" />
+                              <MdOutlineZoomOutMap className="zoom_in" onClick={() => setFullSizeImg(vehicleSlider[imageCurrentIndex])} />
+                              <div className="shown_img_overlay">
+                                <div className="btn_container">
+                                  {" "}
+                                  <FaAngleLeft className="btn" onClick={() => handlePrevImage()} />
+                                  <FaAngleRight className="btn" onClick={() => handleNextImage()} />
+                                </div>
+                              </div>
+                            </div>
+                            <div className="img_list">
+                              {vehicleSlider.map((item, index) => {
+                                return (
+                                  <div key={index} className="list_child" onClick={() => setImageCurrentIndex(index)}>
+                                    <img src={item} alt="" />
+                                  </div>
+                                );
+                              })}
+                            </div>
+                          </div>
+                          <div className="vehicle_description">
+                            <div className="each_row">
+                              <span>მწარმოებელი: </span> BMW
+                            </div>
+                            <div className="each_row">
+                              <span>მოდელი: </span> M3
+                            </div>
+                            <div className="each_row">
+                              <span>ძრავი: </span> 2.5
+                            </div>
+                            <div className="each_row">
+                              <span>ცილინდრი: </span> 8
+                            </div>
+                            <div className="each_row">
+                              <span>გამოშვების წელი: </span> 2017
+                            </div>
+                            <div className="each_row">
+                              <span>ძრავის ტიპი: </span> ბენზინი
+                            </div>
+                            <div className="each_row">
+                              <span>ფასი: </span> $50 000
+                            </div>
+                          </div>
+                        </div>
+                        <div className="bottom_content">
+                          <div className="moredetail ">აღწერა</div>
+                          <div className="detail_info">
+                            ეს მანქანა ჩამოყვანილია ამერიკიდანვა სადმეანბაჟებაამაზებთ მოყვება დაზღვევა და რაღაცეები დსლკჯსაეს მანქანა ჩამოყვანილია ამერიკიდან და წავა სადმე რავიცი ვინც იყიდის. ძაან კაი ფასიაქ და რამე რუმე _ ემატება განბაჟება და თურ რამეა ჩვენ გავანბაჟებთ და შევალამაზებთ მოყვება დაზღვევა და რაღაცეები დსლკჯსადაზღვევა და რაღაცეები დსლკჯსა ეს მანქანა ჩამოყვანილია ამერიკიდან და წავა სადმე რავიცი ვინც იყიდის. ძაან კაი ფასიაქ და რამე რუმე _ ემატება განბაჟება და თურ რამეა ჩვენ
+                            გავანბაჟებთ და შევალამაზებთ მოყვება დაზღვევა და რაღაცეები დსლკჯსა
+                          </div>
+                        </div>
+                      </>
+                    )}
+                  </div>
                 </div>
               )}
             </div>
@@ -298,7 +415,6 @@ const Vehicles = () => {
             <span>1</span>
             <span>2</span>
             <span>3</span>
-
           </div>
           <div className="btn">
             <RxDoubleArrowRight />

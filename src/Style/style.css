@@ -27,7 +27,7 @@
 
 .header {
   position: fixed;
-  z-index: 999;
+  z-index: 9999999;
   font-size: 1.1rem;
   width: 100%;
   height: 3.5rem;
@@ -641,12 +641,6 @@
   background: #141d24;
 }
 
-.about_us {
-  width: 100%;
-  height: 100vh;
-  background-color: #141d24;
-}
-
 .main_title {
   font-size: 2rem;
   font-family: "alk sanet";
@@ -919,6 +913,7 @@
   margin: 3rem auto 1rem auto;
   display: flex;
   justify-content: space-between;
+  align-items: center;
   font-size: 1.15rem;
   padding: 0.5rem;
   border-radius: 100px;
@@ -1008,11 +1003,222 @@
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: whitesmoke;
+  background-color: rgba(19, 26, 31, 0.2);
   display: flex;
   align-items: center;
   justify-content: center;
-  z-index: 99999999;
+  z-index: 9999999999;
+}
+.vehicles .vehicles_container .each_car_container .vehicle_pop_up .overlay_content {
+  width: 60%;
+  height: 90%;
+  background-color: whitesmoke;
+  border-radius: 10px;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  animation: vehicledetail 0.3s linear;
+}
+.vehicles .vehicles_container .each_car_container .vehicle_pop_up .overlay_content .top_content {
+  border-bottom: 1px solid #a3a8ab;
+  display: flex;
+  justify-content: space-between;
+  color: #253642;
+  font-size: 1.1rem;
+  padding-bottom: 0.7rem;
+}
+.vehicles .vehicles_container .each_car_container .vehicle_pop_up .overlay_content .top_content .top_right {
+  display: flex;
+  gap: 1rem;
+}
+.vehicles .vehicles_container .each_car_container .vehicle_pop_up .overlay_content .top_content .top_right .add_favourite {
+  border-right: 1px solid #a3a8ab;
+  padding-right: 0.7rem;
+  color: #25323c;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+}
+.vehicles .vehicles_container .each_car_container .vehicle_pop_up .overlay_content .middle_content {
+  margin-top: 1rem;
+  display: flex;
+  gap: 1rem;
+  font-family: "ALK Sanet", sans-serif;
+}
+.vehicles .vehicles_container .each_car_container .vehicle_pop_up .overlay_content .middle_content .vehicle_sliderr {
+  width: -moz-fit-content;
+  width: fit-content;
+  display: flex;
+  flex-direction: column;
+  gap: 0.7rem;
+}
+.vehicles .vehicles_container .each_car_container .vehicle_pop_up .overlay_content .middle_content .vehicle_sliderr .shown_img {
+  width: 400px;
+  height: 300px;
+  position: relative;
+}
+.vehicles .vehicles_container .each_car_container .vehicle_pop_up .overlay_content .middle_content .vehicle_sliderr .shown_img img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  -o-object-position: center;
+     object-position: center;
+  border-radius: 5px;
+}
+.vehicles .vehicles_container .each_car_container .vehicle_pop_up .overlay_content .middle_content .vehicle_sliderr .shown_img .shown_img_overlay {
+  position: absolute;
+  background-color: rgba(19, 26, 31, 0.3);
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.vehicles .vehicles_container .each_car_container .vehicle_pop_up .overlay_content .middle_content .vehicle_sliderr .shown_img .shown_img_overlay .btn_container {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+.vehicles .vehicles_container .each_car_container .vehicle_pop_up .overlay_content .middle_content .vehicle_sliderr .shown_img .shown_img_overlay .btn_container .btn {
+  color: white;
+  font-size: 2rem;
+  cursor: pointer;
+}
+.vehicles .vehicles_container .each_car_container .vehicle_pop_up .overlay_content .middle_content .vehicle_sliderr .shown_img .zoom_in {
+  position: absolute;
+  bottom: 0.5rem;
+  right: 0.5rem;
+  color: whitesmoke;
+  font-size: 2rem;
+  cursor: pointer;
+  z-index: 99999;
+}
+.vehicles .vehicles_container .each_car_container .vehicle_pop_up .overlay_content .middle_content .vehicle_sliderr .img_list {
+  display: grid;
+  gap: 0.4rem;
+  grid-template-columns: repeat(5, 1fr);
+  max-height: 110px;
+  overflow-y: auto;
+  scrollbar-width: thin;
+  scrollbar-color: #767877;
+  padding-right: 0.5rem;
+}
+.vehicles .vehicles_container .each_car_container .vehicle_pop_up .overlay_content .middle_content .vehicle_sliderr .img_list::-webkit-scrollbar {
+  width: 5px;
+  border-radius: 10px;
+}
+.vehicles .vehicles_container .each_car_container .vehicle_pop_up .overlay_content .middle_content .vehicle_sliderr .img_list .list_child {
+  height: 50px;
+  width: 72px;
+  cursor: pointer;
+}
+.vehicles .vehicles_container .each_car_container .vehicle_pop_up .overlay_content .middle_content .vehicle_sliderr .img_list .list_child img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  -o-object-position: center;
+     object-position: center;
+}
+.vehicles .vehicles_container .each_car_container .vehicle_pop_up .overlay_content .middle_content .vehicle_description {
+  font-size: 1.3rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+}
+.vehicles .vehicles_container .each_car_container .vehicle_pop_up .overlay_content .middle_content .vehicle_description .each_row {
+  display: flex;
+  gap: 0.6rem;
+  color: #253642;
+}
+.vehicles .vehicles_container .each_car_container .vehicle_pop_up .overlay_content .middle_content .vehicle_description .each_row span {
+  color: #253642;
+}
+.vehicles .vehicles_container .each_car_container .vehicle_pop_up .overlay_content .bottom_content {
+  font-family: alk sanet;
+}
+.vehicles .vehicles_container .each_car_container .vehicle_pop_up .overlay_content .bottom_content .moredetail {
+  width: 100%;
+  border-bottom: 1px solid rgb(179, 178, 178);
+  padding: 0.5rem 0;
+  font-size: 1.1rem;
+}
+.vehicles .vehicles_container .each_car_container .vehicle_pop_up .overlay_content .bottom_content .detail_info {
+  margin-top: 1rem;
+  color: grey;
+  width: 90%;
+}
+.vehicles .vehicles_container .each_car_container .vehicle_pop_up .overlay_content .add_favourite {
+  width: 100%;
+  display: flex;
+  justify-content: end;
+}
+.vehicles .vehicles_container .each_car_container .vehicle_pop_up .overlay_content .add_favourite .add {
+  width: 200px;
+  height: 40px;
+  background-color: #1d2933;
+  color: whitesmoke;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 5px;
+  margin-bottom: 2rem;
+  cursor: pointer;
+}
+.vehicles .vehicles_container .each_car_container .vehicle_pop_up .overlay_content .full_size_img {
+  width: 100%;
+  height: 90%;
+  position: relative;
+  animation: fullsizeimg 0.3s linear;
+}
+.vehicles .vehicles_container .each_car_container .vehicle_pop_up .overlay_content .full_size_img .zoom_out {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  width: 50px;
+  height: 50px;
+  color: whitesmoke;
+  background-color: #141d24;
+  border-radius: 10px;
+  font-size: 1rem;
+  padding: 0.5rem;
+  cursor: pointer;
+  z-index: 99999999999;
+}
+.vehicles .vehicles_container .each_car_container .vehicle_pop_up .overlay_content .full_size_img img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: contain;
+     object-fit: contain;
+  -o-object-position: center;
+     object-position: center;
+}
+.vehicles .vehicles_container .each_car_container .vehicle_pop_up .overlay_content .full_size_img .shown_img_overlay {
+  position: absolute;
+  background-color: rgba(19, 26, 31, 0);
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.vehicles .vehicles_container .each_car_container .vehicle_pop_up .overlay_content .full_size_img .shown_img_overlay .btn_container {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+.vehicles .vehicles_container .each_car_container .vehicle_pop_up .overlay_content .full_size_img .shown_img_overlay .btn_container .btn {
+  color: white;
+  font-size: 2rem;
+  cursor: pointer;
 }
 .vehicles .vehicles_container .pagination {
   padding: 0.4rem 0;
@@ -1052,6 +1258,16 @@
   color: whitesmoke;
 }
 
+@keyframes fullsizeimg {
+  0% {
+    transform: scale(0);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
 .slick-slide > div {
   margin: 0 5px;
 }
@@ -1061,6 +1277,53 @@
   color: #253642 !important;
   font-size: 2rem !important;
   margin: 0;
+}
+
+.about_us {
+  width: 100%;
+  background-color: #141d24;
+}
+.about_us .about_us_title {
+  font-size: 2rem;
+  font-family: "alk sanet";
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  padding: 5rem;
+}
+.about_us .about_us_title span {
+  width: 600px;
+  padding: 1rem 0;
+  color: whitesmoke;
+  border-top: 1px solid whitesmoke;
+  border-bottom: 1px solid whitesmoke;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.about_us .about_us_content {
+  width: 90%;
+  margin: 2rem auto 0 auto;
+  display: flex;
+  gap: 1rem;
+}
+.about_us .about_us_content .aboutus_left_side {
+  width: 50%;
+  height: -moz-fit-content;
+  height: fit-content;
+}
+.about_us .about_us_content .aboutus_left_side video {
+  width: 100%;
+  height: 100%;
+}
+.about_us .about_us_content .aboutus_right_side {
+  width: 50%;
+  font-size: 1.2rem;
+  color: whitesmoke;
+  background-color: #1d2933;
+  font-family: "BPG Arial Caps", sans-serif;
+  border-radius: 10px;
+  padding: 2rem;
 }
 
 .filter_menu_popup_container {
@@ -1088,13 +1351,24 @@
     opacity: 1;
   }
 }
-@keyframes expandfilteroverlay {
+@keyframes vehicledetail {
   0% {
-    height: 0px;
+    transform: scale(0);
+    opacity: 0;
   }
   100% {
-    height: -moz-fit-content;
-    height: fit-content;
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+@keyframes zoomimage {
+  0% {
+    transform: scale(0);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
   }
 }
 @media screen and (max-width: 1000px) {
@@ -1116,6 +1390,21 @@
   .background_image_container .background_image_overlay {
     height: 80vh;
   }
+  .about_us .about_us_title {
+    padding-bottom: 2.5rem;
+  }
+  .about_us .about_us_content {
+    flex-direction: column;
+  }
+  .about_us .about_us_content .aboutus_left_side {
+    width: 100%;
+  }
+  .about_us .about_us_content .aboutus_right_side {
+    width: 100%;
+  }
+  .vehicles .vehicles_container .each_car_container .vehicle_pop_up .overlay_content {
+    width: 80%;
+  }
 }
 @media screen and (max-width: 900px) {
   .header .navigation {
@@ -1136,6 +1425,16 @@
     font-size: 1.4rem;
     margin: 3rem auto;
     width: 100%;
+  }
+  .about_us .about_us_title {
+    padding-bottom: 1.5rem;
+  }
+  .about_us .about_us_title span {
+    font-size: 1.4rem;
+    text-align: center;
+  }
+  .about_us .about_us_content .aboutus_right_side {
+    font-size: 1rem;
   }
   .contact .main_title {
     width: 90%;
@@ -1177,6 +1476,18 @@
   }
   .video {
     grid-template-columns: repeat(auto-fit, minmax(100%, 1fr));
+  }
+  .vehicles .vehicles_container .each_car_container .vehicle_pop_up .overlay_content {
+    width: 95% !important;
+  }
+  .vehicles .vehicles_container .each_car_container .vehicle_pop_up .overlay_content .top_content .vehicle_name span {
+    display: none;
+  }
+  .vehicles .vehicles_container .each_car_container .vehicle_pop_up .overlay_content .middle_content .vehicle_description {
+    margin: 2rem 0;
+    font-size: 1rem;
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
   }
 }
 @media screen and (max-width: 1300px) {
@@ -1247,7 +1558,7 @@
   .vehicles .vehicles_cover_container .vehicles_cover_overlay .sorting_fields .each_field_container .sorting_field_overlay {
     position: static;
     background-color: whitesmoke;
-    animation: expandfilteroverlay 0.5s ease-in-out;
+    animation: none;
   }
   .vehicles .vehicles_cover_container .vehicles_cover_overlay .sorting_fields .filter_background_overlay {
     display: none;
@@ -1393,9 +1704,49 @@
     height: 45px;
     padding: 0.4rem;
   }
+  .vehicles .vehicles_container .each_car_container .vehicle_pop_up {
+    overflow: hidden;
+  }
+  .vehicles .vehicles_container .each_car_container .vehicle_pop_up .overlay_content {
+    width: 80%;
+    overflow-y: scroll;
+  }
+  .vehicles .vehicles_container .each_car_container .vehicle_pop_up .overlay_content .middle_content {
+    flex-direction: column;
+  }
+  .vehicles .vehicles_container .each_car_container .vehicle_pop_up .overlay_content .middle_content .vehicle_sliderr {
+    width: 100%;
+  }
+  .vehicles .vehicles_container .each_car_container .vehicle_pop_up .overlay_content .middle_content .vehicle_sliderr .shown_img {
+    width: 100%;
+  }
+  .vehicles .vehicles_container .each_car_container .vehicle_pop_up .overlay_content .middle_content .vehicle_sliderr .img_list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: flex-start;
+    overflow: none;
+    gap: 0.2rem;
+  }
+  .vehicles .vehicles_container .each_car_container .vehicle_pop_up .overlay_content .middle_content .vehicle_sliderr .img_list::after {
+    content: "";
+    flex: auto;
+  }
+  .vehicles .vehicles_container .each_car_container .vehicle_pop_up .overlay_content .middle_content .vehicle_description {
+    margin: 2rem 0;
+    font-size: 1rem;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+  }
 }
 @media screen and (max-width: 700px) {
   .contact .contact_title {
     font-size: 1.5rem;
+  }
+  .vehicles .vehicles_container .each_car_container .vehicle_pop_up .overlay_content .middle_content .vehicle_description {
+    margin: 2rem 0;
+    font-size: 1rem;
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
   }
 }/*# sourceMappingURL=style.css.map */
